@@ -58,18 +58,20 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
 
 });
 
+// edit profile
 router.post("/profile", auth.ensureLoggedIn, (req, res) => {
-  const newStatus = new Status({
-    googleid: req.user.googleid,
-    name: req.user.name,
-    content: req.body.content,
+  User.find({ googleid: req.query.googleid }).then((userContent) => {
+    res.send(userContent);
   });
-  newStatus.save().then((status) => res.send(status));
-
+  Social.find({ googleid: req.query.googleid }).then((userContent) => {
+    res.send(userContent);
+  });
+  // TODO: insert code to change fields
 });
 
+// get profile data
 router.get("/profile", (req, res) => {
-  User.find({ parent: req.query.parent }).then((userContent) => {
+  User.find({ googleid: req.query.googleid }).then((userContent) => {
     res.send(userContent);
   });
 });
