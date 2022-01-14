@@ -33,9 +33,9 @@ const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = "mongodb+srv://sophiez:hpr86zg4@cluster0.tllaw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const mongoConnectionURL = "mongodb+srv://sophiez:hpr86zg4@cluster0.tllaw.mongodb.net/BubblePop?retryWrites=true&w=majority";
 // TODO change database name to the name you chose
-const databaseName = "FILL ME IN";
+const databaseName = "BubblePop";
 
 // connect to mongodb
 mongoose
