@@ -20,4 +20,6 @@ const SocialSchema = new mongoose.Schema({
 });
 
 // compile model from schema
-module.exports = mongoose.model("social", SocialSchema);
+// module.exports = mongoose.model("social", SocialSchema);
+
+module.exports = Social = mongoose.model('social', SocialSchema);

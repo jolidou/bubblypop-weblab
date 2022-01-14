@@ -48,4 +48,30 @@ router.all("*", (req, res) => {
   res.status(404).send({ msg: "API route not found" });
 });
 
+router.post("/status", auth.ensureLoggedIn, (req, res) => {
+  const newStatus = new Status({
+    googleid: req.user.googleid,
+    name: req.user.name,
+    content: req.body.content,
+  });
+  newStatus.save().then((status) => res.send(status));
+
+});
+
+router.post("/profile", auth.ensureLoggedIn, (req, res) => {
+  const newStatus = new Status({
+    googleid: req.user.googleid,
+    name: req.user.name,
+    content: req.body.content,
+  });
+  newStatus.save().then((status) => res.send(status));
+
+});
+
+router.get("/profile", (req, res) => {
+  User.find({ parent: req.query.parent }).then((userContent) => {
+    res.send(userContent);
+  });
+});
+
 module.exports = router;
