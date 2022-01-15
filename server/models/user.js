@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 // const Social = require('./Social');
-import Social from './social.js'
+import SocialMedia from './socialMedia.js'
 
 const UserSchema = new mongoose.Schema({
-  name: String,
   googleid: String,
+  name: String,
   counter: Number,
   avatarURL: String, 
   status: String,
-  social: {type: Schema.Types.ObjectId, ref: 'Social'},
+  socialMedia: {type: Schema.Types.ObjectId, ref: 'SocialMedia'},
 });
 
 // compile model from schema
