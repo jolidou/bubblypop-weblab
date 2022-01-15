@@ -1,10 +1,10 @@
-import { get } from "core-js/core/dict";
+import { get } from "../../utilities.js";
 import React, { useState, useEffect} from "react";
 import { StatusUpdate } from "../modules/AddBubble.js";
 
 import "./BubblePage.css";
 
-/* const BubblePage = (props) => {
+const BubblePage = (props) => {
     return (
         <div>
             <div>
@@ -14,8 +14,8 @@ import "./BubblePage.css";
         </div>
     );
 }
- */
-const PopBubble = (props) => {
+
+/* const PopBubble = (props) => {
     const [bubbleDisplay, setBubbleDisplay] = useState();
 
     useEffect(() => {
@@ -28,5 +28,5 @@ const PopBubble = (props) => {
         </div>
     )
 }
-
+ */
 export default BubblePage;
