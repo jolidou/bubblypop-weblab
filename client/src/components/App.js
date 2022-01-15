@@ -4,6 +4,7 @@ import NavBar from "./modules/NavBar.js";
 import NotFound from "./pages/NotFound.js";
 import Profile from "./pages/Profile.js";
 import BubblePage from "./pages/BubblePage.js"
+import Edit from "./pages/Edit.js"
 
 import { socket } from "../client-socket.js";
 
@@ -48,7 +49,7 @@ const App = () => {
       <Router>
         <Profile path="/profile/" />
         <BubblePage path="/bubblepage/" userId={userId} />
-        <Edit path = "/edit-profile/" />
+        <Edit path = "/edit-profile/"/>
         <NotFound default />
       </Router>
     </>
