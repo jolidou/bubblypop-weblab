@@ -1,6 +1,22 @@
+import { get } from "core-js/core/dict";
 import React, { useState, useEffect } from "react";
 
 const Profile = (props) => {
+    const [counter, setCounter] = useState(0);
+    const [user, setUser] =  useState();
+
+    useEffect(() => {
+        document.title = "Profile";
+        get(`/api/profile`, { profile: props.profile }).then((userObj) => setUser(userObj));
+    }, []);
+
+    const incrementCounter = () => {
+        setCounter(counter + 1);
+    }
+
+    if (!profile) {
+        return (<div>Profile</div>)
+    }
 
     return (
         <>
@@ -8,7 +24,7 @@ const Profile = (props) => {
                 <div>{props.user.avatarURL}</div>
                 <div>{props.user.name}</div>
                 <div>
-                    <div onclick="location.href='/edit-profile'" type="button">Edit Profile</div>
+                    <div onclick="location.href='/edit-profile/'" type="button">Edit Profile</div>
                 </div>
             </div>
             <div>

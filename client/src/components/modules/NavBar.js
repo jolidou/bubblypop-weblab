@@ -10,7 +10,7 @@ const NavBar = (props) => {
     return(
         <nav>
             <div>Bubble Pop!</div>
-            <Link to="/">
+            <Link to="/bubblepage/">
                 BubblePage
             </Link>
             {props.userID && (

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
 import NotFound from "./pages/NotFound.js";
-import Skeleton from "./pages/Skeleton.js";
 import Profile from "./pages/Profile.js";
 import BubblePage from "./pages/BubblePage.js"
 
@@ -51,7 +50,6 @@ const App = () => {
         userId={userId}
     />
       <Router>
-        <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <Profile path="/profile/:userId" />
         <BubblePage path="/bubblepage/" userId={userId} />
         <NotFound default />
