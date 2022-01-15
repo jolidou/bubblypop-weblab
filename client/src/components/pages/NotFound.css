@@ -1,0 +1,102 @@
+@import "../../utilities.css";
+
+.turqCircle {
+  position: absolute;
+  left: 32%;
+  top: 17%;
+  background-color: var(--dark-turq);
+  width: 25vmin;
+  height: 25vmin;
+  margin: auto;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+}
+
+.pinkCircle {
+  position: relative;
+  bottom: 33vmin;
+  background-color: var(--pink);
+  width: 30vmin;
+  height: 30vmin;
+  margin: auto;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+}
+
+.lightPinkCircle {
+  position: relative;
+  bottom: 50vmin;
+  left: 20vmin;
+  background-color: var(--light-pink);
+  width: 20vmin;
+  height: 20vmin;
+  margin: auto;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+}
+
+.yellowCircle {
+  position: absolute;
+  background-color: var(--sunflower);
+  left: 43%;
+  top: 30%;
+  width: 20vmin;
+  height: 20vmin;
+  margin: auto;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+}
+
+p {
+  position: relative;
+  background-color: var(--mint-cream);
+  padding: 1.125em 1.5em;
+  font-size: 3.5vmin;
+  font-weight: 400;
+  font-style: italic;
+  border-radius: 1rem;
+  z-index: 4;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-turq);
+  animation: bgColor 10s infinite linear;
+}
+
+body {
+  padding: 0 1rem;
+}
+
+@keyframes bgColor {
+  12.5% {
+    background-color: var(--light-turq);
+  }
+  37.5% {
+    background-color: var(--dark-turq);
+  }
+  50% {
+    background-color: var(--dark-lilac);
+  }
+  62.5% {
+    background-color: var(--pink);
+  }
+  75% {
+    background-color: var(--light-pink);
+  }
+  87.5% {
+    background-color: var(--dark-turq);
+  }
+  100% {
+    background-color: var(--light-turq);
+  }
+}
