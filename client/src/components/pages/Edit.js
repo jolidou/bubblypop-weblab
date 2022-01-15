@@ -58,9 +58,11 @@ const Edit = (props) => {
                     </div>
                     <div className = "columnItem">
                         <div className = "rowContainer">
-                            <div className = "rowItem">
-                                PROFILE PIC
-                            </div>
+                                <div className = "rowItem">
+                                    <div className = "edit-Avatar">
+                                        <img src = "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2Zyb2ctMS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MH19fQ==" />
+                                    </div>
+                                </div>
                             <div className = "rowItem">
                                 <button>DONE EDITING</button>
                             </div>

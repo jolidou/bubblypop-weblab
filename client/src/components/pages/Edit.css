@@ -49,14 +49,18 @@ body {
 }
 
 .columnContainer {
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--mint-cream);
 }
+
 .columnItem {
   order: 0 1;
   width: 100%;
+}
+
+.edit-Avatar {
+  border-radius: 50%;
 }
