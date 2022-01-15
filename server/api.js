@@ -70,7 +70,7 @@ router.get("/profile", (req, res) => {
 
 router.post("/profile", (req, res) => { //GET HELP - how do we save only
   //fields that the user(s) changed, while keeping others the same?
-  let updatedUser = await User.findOneAndUpdate({ googleid: req.query.googleid }, update, {
+  let updatedUser = User.findOneAndUpdate({ googleid: req.query.googleid }, update, {
       googleid: req.user.googleid,
       name: req.user.name,
       counter: req.user.bubbleCount,
@@ -80,7 +80,6 @@ router.post("/profile", (req, res) => { //GET HELP - how do we save only
       new: true,
       upsert: true //if no document matches filter (user DNE yet- creates one)
   });
-  updatedUser.save().then((user) => res.send(user));
 });
 
 //METHOD TO GET CONTACTS
