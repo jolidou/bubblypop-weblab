@@ -39,4 +39,4 @@ const StatusUpdate = (props) => {
     return <AddBubble defaultText="New Status Update" onSubmit={updateStatus}/>
 }
 
-export default StatusUpdate;
+export { StatusUpdate };
