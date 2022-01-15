@@ -1,4 +1,10 @@
 import React from "react";
+import GoogleLogin, { GoogleLogout } from "react-google-login";
+
+import "../../utilities.css";
+
+//TODO: REPLACE WITH YOUR OWN CLIENT_ID
+const GOOGLE_CLIENT_ID = "1587080949981-lmcaeo0kcv8rkcb4c38lcs8gr084338r.apps.googleusercontent.com";
 
 const NavBar = (props) => {
     return(
@@ -30,3 +36,5 @@ const NavBar = (props) => {
         </nav>
     )
 }
+
+export default NavBar;

@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import GoogleLogin, { GoogleLogout } from "react-google-login";
-
-import "../../utilities.css";
-
-//TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "1587080949981-lmcaeo0kcv8rkcb4c38lcs8gr084338r.apps.googleusercontent.com";
 
 const Profile = (props) => {
 
@@ -12,17 +6,24 @@ const Profile = (props) => {
         <>
             <div>
                 <div>{props.user.avatarURL}</div>
-                
-                <div>/* Name */</div>
+                <div>{props.user.name}</div>
+                <div>
+                    <div onclick="location.href='/edit-profile'" type="button">Edit Profile</div>
+                </div>
             </div>
             <div>
                 <div>Bubble Count:</div>
-                <div>/* BubbleCount */</div>
+                <div>{props.user.counter}</div>
             </div>
             <div>
                 <div>Contacts</div>
-                <div>/* Contacts List*/</div>
+                <span>{props.contact.friend}</span>
+                <span>{props.contact.romantic}</span>
+                <span>{props.contact.professional}</span>
+                <span>{props.contact.undecided}</span>
             </div>
         </>
     )
 }
+
+export default Profile;
