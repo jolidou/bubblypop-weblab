@@ -25,8 +25,8 @@ const Profile = (props) => {
         <>
         <div className="u-flexRow Flex-fullPage">
             <div className="Profile-avatarContainer">
-                <div className="Profile-avatar"></div>
-                <div className="Profile-name u-textCenter">Amandager</div>
+                <div className="Profile-avatar"><img src={user.avatarURL}/></div>
+                <div className="Profile-name u-textCenter">{user.name}</div>
                 <div className="u-divCenter">
                 <form action="/edit-profile/" method="get" className="u-divCenter">
                     <button>Edit Profile</button>
