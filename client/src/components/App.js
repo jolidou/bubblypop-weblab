@@ -47,7 +47,8 @@ const App = () => {
     <>
       <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
       <Router>
-        <Profile path="/profile/" />
+        // actually "/profile/:user"
+        <Profile path="/profile/" /> 
         <BubblePage path="/bubblepage/" userId={userId} />
         <Edit path = "/edit-profile/"/>
         <NotFound default />
