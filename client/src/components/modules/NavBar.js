@@ -1,20 +1,18 @@
 import React from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
-import "../../utilities.css";
-
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "1587080949981-lmcaeo0kcv8rkcb4c38lcs8gr084338r.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "587080949981-lmcaeo0kcv8rkcb4c38lcs8gr084338r.apps.googleusercontent.com";
 
-const NavBar = (props) => {
+const NavBar = (props, { userId, handleLogin, handleLogout }) => {
     return(
         <nav>
             <div>Bubble Pop!</div>
-            <Link to="/bubblepage/">
+{/*             <Link to="/bubblepage/">
                 BubblePage
-            </Link>
-            {props.userID && (
-                <Link to={`/profile/${props.userID}`}>
+            </Link> */}
+            {props.userId && (
+                <Link to={`/profile/${props.userId}`}>
                     Profile
                 </Link>
             )}
