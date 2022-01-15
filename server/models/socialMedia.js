@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const SocialSchema = new mongoose.Schema({
+const SocialMediaSchema = new mongoose.Schema({
   linkedin: {
       URL: String, 
       display: Boolean
@@ -22,4 +22,4 @@ const SocialSchema = new mongoose.Schema({
 // compile model from schema
 // module.exports = mongoose.model("social", SocialSchema);
 
-module.exports = Social = mongoose.model('social', SocialSchema);
+module.exports = SocialMedia = mongoose.model('social', SocialMediaSchema);
