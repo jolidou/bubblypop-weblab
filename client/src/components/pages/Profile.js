@@ -1,4 +1,4 @@
-import { get } from "core-js/core/dict";
+import { get } from "../../utilities.js";
 import React, { useState, useEffect } from "react";
 
 const Profile = (props) => {
@@ -7,7 +7,7 @@ const Profile = (props) => {
 
     useEffect(() => {
         document.title = "Profile";
-        get(`/api/profile`, { profile: props.profile }).then((userObj) => setUser(userObj));
+        get(`/api/profile`, { id: props.googleid }).then((userObj) => setUser(userObj));
     }, []);
 
     const incrementCounter = () => {
