@@ -44,14 +44,11 @@ const App = () => {
 
   return (
     <>
-    <NavBar
-        handleLogin={handleLogin}
-        handleLogout={handleLogout}
-        userId={userId}
-    />
+      <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
       <Router>
-        <Profile path="/profile/:userId" />
+        <Profile path="/profile/" />
         <BubblePage path="/bubblepage/" userId={userId} />
+        <Edit path = "/edit-profile/" />
         <NotFound default />
       </Router>
     </>
