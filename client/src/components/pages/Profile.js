@@ -23,16 +23,17 @@ const Profile = (props) => {
 
     return (
         <>
+        <div className="u-flexRow Flex-fullPage">
             <div className="Profile-avatarContainer">
                 <div className="Profile-avatar"></div>
                 <div className="Profile-name u-textCenter">Amandager</div>
-                <div>
-                <form action="/edit-profile/" method="get">
+                <div className="u-divCenter">
+                <form action="/edit-profile/" method="get" className="u-divCenter">
                     <button>Edit Profile</button>
                 </form>
                 </div>
             </div>
-            <div>
+            <div className="">
                 <div>Bubble Count:</div>
                 <div>{user.counter}</div>
             </div>
@@ -43,6 +44,7 @@ const Profile = (props) => {
                 <span>{contact.professional}</span>
                 <span>{contact.undecided}</span> */}
             </div>
+        </div>
         </>
     )
 }

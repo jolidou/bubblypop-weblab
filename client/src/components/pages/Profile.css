@@ -1,5 +1,5 @@
 .Profile-avatarContainer {
-  padding: 0 35%;
+  padding: 0 10%;
 }
 
 .Profile-avatar {
@@ -27,4 +27,9 @@
 .Profile-name {
   font-size: 40px;
   font-weight: 300;
+}
+
+.Flex-fullPage {
+  align-items: center;
+  justify-content: space-evenly;
 }

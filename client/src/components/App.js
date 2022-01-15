@@ -47,7 +47,7 @@ const App = () => {
     <>
       <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
       <Router>
-        // actually "/profile/:user"
+        {/* actually "/profile/:user" */}
         <Profile path="/profile/" /> 
         <BubblePage path="/bubblepage/" userId={userId} />
         <Edit path = "/edit-profile/"/>
