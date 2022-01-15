@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
@@ -12,7 +13,7 @@ const NavBar = (props, { userId, handleLogin, handleLogout }) => {
                 BubblePage
             </Link> */}
             {props.userId && (
-                <Link to={`/profile/${props.userId}`}>
+                <Link to="/profile/">
                     Profile
                 </Link>
             )}

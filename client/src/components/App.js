@@ -44,13 +44,9 @@ const App = () => {
 
   return (
     <>
-    <NavBar
-        handleLogin={handleLogin}
-        handleLogout={handleLogout}
-        userId={userId}
-    />
+      <NavBar/>
       <Router>
-        <Profile path="/profile/:userId" />
+        <Profile path="/profile/" />
         <BubblePage path="/bubblepage/" userId={userId} />
         <NotFound default />
       </Router>
