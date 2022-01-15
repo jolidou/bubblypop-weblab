@@ -12,6 +12,21 @@ const NavBar = (props) => {
                     Profile
                 </Link>
             )}
+            {userId ? (
+            <GoogleLogout
+                clientId={GOOGLE_CLIENT_ID}
+                buttonText="Logout"
+                onLogoutSuccess={handleLogout}
+                onFailure={(err) => console.log(err)}
+            />
+            ) : (
+            <GoogleLogin
+                clientId={GOOGLE_CLIENT_ID}
+                buttonText="Login"
+                onSuccess={handleLogin}
+                onFailure={(err) => console.log(err)}
+            />
+            )}
         </nav>
     )
 }
