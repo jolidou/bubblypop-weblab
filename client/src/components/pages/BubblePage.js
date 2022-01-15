@@ -5,12 +5,13 @@ import { StatusUpdate } from "../modules/AddBubble.js";
 import "./BubblePage.css";
 
 const BubblePage = (props) => {
+
     return (
         <div>
             <div>
-                
+                status update
             </div>
-            <StatusUpdate userId={props.status.content} status={props.status.content} display={props.bubble.display}/>
+            <StatusUpdate userId={props.status.googleId} status={props.status.content} display={props.bubble.display}/>
         </div>
     );
 }
@@ -21,18 +22,24 @@ const BubblePage = (props) => {
 Basically what I want to do is change props.bubble.display = False when event onClick; each bubble is a div
 
 */
-const PopBubble = (props) => {
-    const [bubbleDisplay, setBubbleDisplay] = useState();
-
-    useEffect(() => {
-        get({parent: props.bubble.display}).then((display))
+/* const PopBubble = (props) => {
+    const [display, setBubbleDisplay] = useState(true);
+    
+    get({parent: props.bubble.display}).then((display) => {
+        setBubbleDisplay({
+            display: false, 
+        })
     })
     
     return (
         <div>
-            Popped Bubble
+            <div onClick={() => setBubbleDisplay({
+                    display: false, 
+                })}>
+                
+            </div>
         </div>
     )
-}
+} */
 
 export default BubblePage;
