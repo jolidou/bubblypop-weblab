@@ -15,7 +15,13 @@ const BubblePage = (props) => {
     );
 }
 
-/* const PopBubble = (props) => {
+
+/* 
+
+Basically what I want to do is change props.bubble.display = False when event onClick; each bubble is a div
+
+*/
+const PopBubble = (props) => {
     const [bubbleDisplay, setBubbleDisplay] = useState();
 
     useEffect(() => {
@@ -28,5 +34,5 @@ const BubblePage = (props) => {
         </div>
     )
 }
- */
+
 export default BubblePage;
