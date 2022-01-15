@@ -1,0 +1,30 @@
+.Profile-avatarContainer {
+  padding: 0 35%;
+}
+
+.Profile-avatar {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-top: 100%;
+  border-radius: 50%;
+
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../../public/bubbles.png");
+}
+
+.Profile-name {
+  font-size: 40px;
+  font-weight: 300;
+}

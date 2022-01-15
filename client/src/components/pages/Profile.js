@@ -1,6 +1,9 @@
 import { get } from "../../utilities.js";
 import React, { useState, useEffect } from "react";
 
+import "../../utilities.css";
+import "./Profile.css";
+
 const Profile = (props) => {
     const [counter, setCounter] = useState(0);
     const [user, setUser] =  useState();
@@ -20,12 +23,12 @@ const Profile = (props) => {
 
     return (
         <>
-            <div>
-                <div>{user.avatarURL}</div>
-                <div>{user.name}</div>
+            <div className="Profile-avatarContainer">
+                <div className="Profile-avatar"></div>
+                <div className="Profile-name u-textCenter">Amandager</div>
                 <div>
-                <form style="display: inline" action="http://example.com/" method="get">
-                    <button>Visit Website</button>
+                <form action="/edit-profile/" method="get">
+                    <button>Edit Profile</button>
                 </form>
                 </div>
             </div>
