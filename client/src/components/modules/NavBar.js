@@ -1,39 +1,32 @@
-import React from "react";
-import { Link } from "@reach/router";
+import React, { Component } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
-//TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "587080949981-lmcaeo0kcv8rkcb4c38lcs8gr084338r.apps.googleusercontent.com";
+import "../../utilities.css";
+import "./NavBar.css";
 
-const NavBar = (props, { userId, handleLogin, handleLogout }) => {
-    return(
-        <nav>
-            <div>Bubble Pop!</div>
-{/*             <Link to="/bubblepage/">
-                BubblePage
-            </Link> */}
-            {props.userId && (
-                <Link to="/profile/">
-                    Profile
-                </Link>
-            )}
-            {userId ? (
-            <GoogleLogout
-                clientId={GOOGLE_CLIENT_ID}
-                buttonText="Logout"
-                onLogoutSuccess={handleLogout}
-                onFailure={(err) => console.log(err)}
-            />
-            ) : (
-            <GoogleLogin
-                clientId={GOOGLE_CLIENT_ID}
-                buttonText="Login"
-                onSuccess={handleLogin}
-                onFailure={(err) => console.log(err)}
-            />
-            )}
-        </nav>
-    )
-}
+const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.googleusercontent.com";
+
+const NavBar = ({ userId, handleLogin, handleLogout }) => {
+  return (
+    <>
+      <div>Bubble Pop!</div>
+      {userId ? (
+        <GoogleLogout
+          clientId={GOOGLE_CLIENT_ID}
+          buttonText="Logout"
+          onLogoutSuccess={handleLogout}
+          onFailure={(err) => console.log(err)}
+        />
+      ) : (
+        <GoogleLogin
+          clientId={GOOGLE_CLIENT_ID}
+          buttonText="Login"
+          onSuccess={handleLogin}
+          onFailure={(err) => console.log(err)}
+        />
+      )}
+    </>
+  );
+};
 
 export default NavBar;
