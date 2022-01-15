@@ -76,4 +76,11 @@ router.get("/profile", (req, res) => {
   });
 });
 
+router.post("/bubble", (req, res) => {
+  User.find({ googleid: req.query.googleid }).then((newBubble) => {
+    res.send(req.query.parent + 1);
+  });
+}
+ 
+
 module.exports = router;
