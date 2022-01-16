@@ -69,13 +69,12 @@ router.get("/socialMedia", (req, res) => {
   });
 });
 
-router.get("/users", (req, res) => {
-  const newSocial = new SocialMedia({
-    content: req.body.content,
-  });
-  newSocial.save().then((socail) => res.send(social));
-});
-
+// router.get("/users", (req, res) => {
+//   const newSocial = new SocialMedia({
+//     content: req.body.content,
+//   });
+//   newSocial.save().then((social) => res.send(social));
+// });
 
 router.get("/profile", (req, res) => {
   User.find({ parent: req.query.googleid }).then((currentUser) => {
@@ -125,6 +124,12 @@ router.get("/activeUsers", (req, res) => {
 });
 
 // NEW [sophie]
+
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
 
 router.get("/users", (req, res) => {
   User.find({}).then((users) => res.send(users));

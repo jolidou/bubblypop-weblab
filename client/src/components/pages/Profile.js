@@ -1,12 +1,13 @@
 import { get } from "../../utilities.js";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProfileCard from "../modules/ProfileCard.js";
 
 import "../../utilities.css";
 import "./Profile.css";
 
 const Profile = (props) => {
-/*     const [counter, setCounter] = useState(0);
+  console.log(props);
+  /*     const [counter, setCounter] = useState(0);
     const [user, setUser] =  useState();
 
     useEffect(() => {
@@ -22,20 +23,31 @@ const Profile = (props) => {
         return (<div>Profile</div>)
     } */
 
-    return (
-        <>
-            <div>
-                <ProfileCard 
-                    userId={props.userId}
-                    avatarURL={props.avatarURL}
-                    content={props.content}
-                    display={props.display}
-                    bubbleCount={props.bubbleCount}
-                    members = {props.members} //TODO: link googleid of contacts-- add to api.js
-                />
-            </div>
-        </>
-    )
-}
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    get(`/api/user`, { userid: props.user }).then((userObj) => {
+      setUser(userObj);
+    });
+  }, []);
+
+  console.log(user);
+
+  return (
+    <>
+      {user.name}
+      <div>
+        <ProfileCard
+          userId={props.userId}
+          avatarURL={props.avatarURL}
+          content={props.content}
+          display={props.display}
+          bubbleCount={props.bubbleCount}
+          members={props.members} //TODO: link googleid of contacts-- add to api.js
+        />
+      </div>
+    </>
+  );
+};
 
 export default Profile;

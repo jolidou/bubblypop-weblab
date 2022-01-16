@@ -44,6 +44,12 @@ const App = () => {
     post("/api/logout");
   };
 
+  const [counter, setCounter] = useState(0);
+
+  const incrementCounter = () => {
+    setCounter(counter + 1);
+  };
+
   return (
     <>
       <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
@@ -51,8 +57,8 @@ const App = () => {
         <Router>
           <Home path="/" />
           <Profile path="/profile/:user" />
-          <BubblePage path="/bubblepage/:user" userId={userId} />
-          <Edit userId = {userId} path="/edit-profile/:user" />
+          <BubblePage path="/bubblepage/:user" userId={userId} bubbleCount={counter} />
+          <Edit userId={userId} path="/edit-profile/:user" />
           <NotFound default />
         </Router>
       </div>
