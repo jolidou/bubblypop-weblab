@@ -44,14 +44,21 @@ const App = () => {
     post("/api/logout");
   };
 
+  const [counter, setCounter] = useState(0);
+    
+  const incrementCounter = () => {
+      setCounter(counter + 1);
+  }
+
   return (
     <>
       <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <div className="App-container">
         <Router>
           <Home path="/" />
-          <Profile path="/profile/:user" />
-          <BubblePage path="/bubblepage/:user" userId={userId} />
+          <Profile path="/profile/:user" 
+            userId={userId}/>
+          <BubblePage path="/bubblepage/:user" userId={userId} bubbleCount={counter}/>
           <Edit userId = {userId} path="/edit-profile/:user" />
           <NotFound default />
         </Router>
