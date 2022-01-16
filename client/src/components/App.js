@@ -3,15 +3,16 @@ import { Router } from "@reach/router";
 import NavBar from "./modules/NavBar.js";
 import NotFound from "./pages/NotFound.js";
 import Profile from "./pages/Profile.js";
-import BubblePage from "./pages/BubblePage.js"
-import Edit from "./pages/Edit.js"
+import BubblePage from "./pages/BubblePage.js";
+import Edit from "./pages/Edit.js";
+import Home from "./pages/Home.js";
 
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 
 // import CSS files
-import "../utilities.css"
+import "../utilities.css";
 import "./App.css";
 
 /**
@@ -45,14 +46,16 @@ const App = () => {
 
   return (
     <>
-      <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
-      <Router>
-        {/* actually "/profile/:user" */}
-        <Profile path="/profile/" /> 
-        <BubblePage path="/bubblepage/" userId={userId} />
-        <Edit path = "/edit-profile/"/>
-        <NotFound default />
-      </Router>
+      <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+      <div className="App-container">
+        <Router>
+          <Home path="/" />
+          <Profile path="/profile/:user" />
+          <BubblePage path="/bubblepage/" userId={userId} />
+          <Edit path="/edit-profile/:user" />
+          <NotFound default />
+        </Router>
+      </div>
     </>
   );
 };
