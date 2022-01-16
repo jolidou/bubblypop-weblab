@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Edit.css";
 import "../../utilities.css";
+import user from "../../../../server/models/user";
 
 const Edit = (props) => {
   const [linkedIn, setLinkedin] = useState("");
