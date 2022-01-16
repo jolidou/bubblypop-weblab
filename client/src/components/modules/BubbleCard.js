@@ -31,3 +31,5 @@ const BubbleCard = (props) => {
         </div>
     );
 };
+
+export default BubbleCard;
