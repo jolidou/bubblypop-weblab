@@ -7,21 +7,6 @@ import "./Profile.css";
 
 const Profile = (props) => {
   console.log(props);
-  /*     const [counter, setCounter] = useState(0);
-    const [user, setUser] =  useState();
-
-    useEffect(() => {
-        document.title = "Profile";
-        get(`/api/profile`, { id: props.googleid }).then((userObj) => setUser(userObj));
-    }, []);
-
-    const incrementCounter = () => {
-        setCounter(counter + 1);
-    }
-
-    if (!user) {
-        return (<div>Profile</div>)
-    } */
 
   const [user, setUser] = useState([]);
 
@@ -29,20 +14,26 @@ const Profile = (props) => {
     get(`/api/user`, { userid: props.user }).then((userObj) => {
       setUser(userObj);
     });
+    // TODO:
+    // Get avatarURL
+    // Get status
+    // Get bubbleCount
+    // Get contacts
   }, []);
 
   console.log(user);
 
+  // mostly placeholders
   return (
     <>
-      {user.name}
       <div>
         <ProfileCard
-          userId={props.userId}
-          avatarURL={props.avatarURL}
-          content={props.content}
+          userId={user._id}
+          name={user.name}
+          avatarURL="https://is2-ssl.mzstatic.com/image/thumb/Purple128/v4/2c/2e/77/2c2e7707-1585-be11-3f93-23c1a7d14258/source/256x256bb.jpg"
+          content="GRRRR"
           display={props.display}
-          bubbleCount={props.bubbleCount}
+          bubbleCount="0"
           members={props.members} //TODO: link googleid of contacts-- add to api.js
         />
       </div>
