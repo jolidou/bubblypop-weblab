@@ -1,58 +1,68 @@
 @import "../../utilities.css";
 
-.turqCircle {
-  position: absolute;
-  left: 32%;
-  top: 17%;
+body {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CIRCLES */
+
+.circle {
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+}
+
+.turq {
+  position: relative;
   background-color: var(--dark-turq);
+  right: 10%;
+  top: 2%;
   width: 25vmin;
   height: 25vmin;
-  margin: auto;
-  border-radius: 50%;
   z-index: 2;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
 
-.pinkCircle {
+.pink {
   position: relative;
-  bottom: 33vmin;
   background-color: var(--pink);
+  top: 22%;
   width: 30vmin;
   height: 30vmin;
-  margin: auto;
-  border-radius: 50%;
   z-index: 1;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
 
-.lightPinkCircle {
+.lightPink {
   position: relative;
-  bottom: 50vmin;
-  left: 20vmin;
   background-color: var(--light-pink);
+  left: 10%;
+  bottom: 42%;
   width: 20vmin;
   height: 20vmin;
-  margin: auto;
-  border-radius: 50%;
   z-index: 2;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
 
-.yellowCircle {
-  position: absolute;
+.yellow {
+  position: relative;
   background-color: var(--sunflower);
-  left: 43%;
-  top: 30%;
-  width: 20vmin;
-  height: 20vmin;
-  margin: auto;
-  border-radius: 50%;
+  bottom: 15%;
+  width: 22vmin;
+  height: 22vmin;
   z-index: 3;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
+
+/* TEXT BOX */
 
 p {
-  position: relative;
+  position: absolute;
+  margin: 0 auto;
+  left: 10%;
+  top: 40%;
+  right: 10%;
+  width: 78vmin;
   background-color: var(--mint-cream);
   padding: 1.125em 1.5em;
   font-size: 3.5vmin;
@@ -63,18 +73,20 @@ p {
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
 
-html,
-body {
+/* RAINBOW BACKGROUND */
+.overlay {
+  opacity: 1;
+  position: fixed;
+  width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--light-turq);
-  animation: bgColor 10s infinite linear;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
 }
 
-body {
-  padding: 0 1rem;
+.rainbow {
+  background-color: var(--light-turq);
+  animation: bgColor 10s infinite linear;
 }
 
 @keyframes bgColor {

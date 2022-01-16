@@ -4,13 +4,13 @@ import "../../utilities.css";
 
 const NotFound = (props) => {
   return (
-    <div class = "rainbow">
-            <p>Oops! We can't find the page you're looking for :(</p>
-            <div className = "pinkCircle" />
-            <div className = "turqCircle" />
-            <div className = "yellowCircle" />
-            <div className = "lightPinkCircle" />
-          </div>
+    <div className = "rainbow overlay">
+          <p>Oops! We can't find the page you're looking for :(</p>
+          <div className = "circle pink" />
+          <div className = "circle turq" />
+          <div className = "circle yellow" />
+          <div className = "circle lightPink" />
+    </div>
   );
 };
 
