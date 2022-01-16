@@ -10,10 +10,10 @@ const Edit = (props) => {
   const [phone, setPhone] = useState(0);
   const[social, setSocial] = useState("");
 
-//   useEffect(() => {
-//     document.title = "Edit/Create Profile";
-//     get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
-//   }, []);
+  //   useEffect(() => {
+  //     document.title = "Edit/Create Profile";
+  //     get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
+  //   }, []);
 
 //   if (!user) {
 //     return (<div> Loading! </div>);

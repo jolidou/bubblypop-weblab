@@ -1,11 +1,12 @@
 import { get } from "../../utilities.js";
 import React, { useState, useEffect } from "react";
+import ProfileCard from "../modules/ProfileCard.js";
 
 import "../../utilities.css";
 import "./Profile.css";
 
 const Profile = (props) => {
-    const [counter, setCounter] = useState(0);
+/*     const [counter, setCounter] = useState(0);
     const [user, setUser] =  useState();
 
     useEffect(() => {
@@ -19,32 +20,20 @@ const Profile = (props) => {
 
     if (!user) {
         return (<div>Profile</div>)
-    }
+    } */
 
     return (
         <>
-        <div className="u-flexRow Flex-fullPage">
-            <div className="Profile-avatarContainer">
-                <div className="Profile-avatar"><img src={user.avatarURL}/></div>
-                <div className="Profile-name u-textCenter">{user.name}</div>
-                <div className="u-divCenter">
-                <form action="/edit-profile/" method="get" className="u-divCenter">
-                    <button>Edit Profile</button>
-                </form>
-                </div>
-            </div>
-            <div className="">
-                <div>Bubble Count:</div>
-                <div>{user.counter}</div>
-            </div>
             <div>
-{/*                 <div>Contacts</div>
-                <span>{contact.friend}</span>
-                <span>{contact.romantic}</span>
-                <span>{contact.professional}</span>
-                <span>{contact.undecided}</span> */}
+                <ProfileCard 
+                    userId={props.userId}
+                    avatarURL={props.avatarURL}
+                    content={props.content}
+                    display={props.display}
+                    bubbleCount={props.bubbleCount}
+                    members = {props.members} //TODO: link googleid of contacts-- add to api.js
+                />
             </div>
-        </div>
         </>
     )
 }
