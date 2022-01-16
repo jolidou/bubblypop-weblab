@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import { get } from "../../utilities";
 
 import BubbleCounter from "./BubbleCounter.js";
-import SocialMedia from "./SocialMedia.js";
 import Status from "./Status.js";
 import Avatar from "./Avatar.js";
 import Contact from "./Contact.js";
@@ -45,11 +44,11 @@ const ProfileCard = (props) => {
                 />
             </div>
             <div>
-                <SocialMediaBlock 
+{/*                 <SocialMediaBlock 
                     userId={props.userId}
                     display={props.display}
                     type={props.type}
-                />
+                /> */}
             </div>
             <div>
                 <div>Bubble Counter:</div>
