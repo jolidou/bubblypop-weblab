@@ -69,13 +69,12 @@ router.get("/socialMedia", (req, res) => {
   });
 });
 
-router.get("/users", (req, res) => {
-  const newSocial = new SocialMedia({
-    content: req.body.content,
-  });
-  newSocial.save().then((socail) => res.send(social));
-});
-
+// router.get("/users", (req, res) => {
+//   const newSocial = new SocialMedia({
+//     content: req.body.content,
+//   });
+//   newSocial.save().then((social) => res.send(social));
+// });
 
 router.get("/profile", (req, res) => {
   User.find({ parent: req.query.googleid }).then((currentUser) => {
