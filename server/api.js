@@ -125,6 +125,12 @@ router.get("/activeUsers", (req, res) => {
 
 // NEW [sophie]
 
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
 router.get("/users", (req, res) => {
   User.find({}).then((users) => res.send(users));
 });
