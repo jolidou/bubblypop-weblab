@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
 
 const ContactSchema = new mongoose.Schema({
-  friend: [String], //weird
-  romantic: [String], 
-  professional: [String], 
-  undecided: [String],
-  googleid: String
+  googleid: String, 
+  type: String, 
+  members: [String] // list of Google IDs of contacts of this type
 });
 
 // compile model from schema
