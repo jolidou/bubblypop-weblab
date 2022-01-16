@@ -45,10 +45,10 @@ const App = () => {
   };
 
   const [counter, setCounter] = useState(0);
-    
+
   const incrementCounter = () => {
-      setCounter(counter + 1);
-  }
+    setCounter(counter + 1);
+  };
 
   return (
     <>
@@ -56,10 +56,9 @@ const App = () => {
       <div className="App-container">
         <Router>
           <Home path="/" />
-          <Profile path="/profile/:user" 
-            userId={userId}/>
-          <BubblePage path="/bubblepage/:user" userId={userId} bubbleCount={counter}/>
-          <Edit userId = {userId} path="/edit-profile/:user" />
+          <Profile path="/profile/:user" />
+          <BubblePage path="/bubblepage/:user" userId={userId} bubbleCount={counter} />
+          <Edit userId={userId} path="/edit-profile/:user" />
           <NotFound default />
         </Router>
       </div>
