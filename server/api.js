@@ -38,7 +38,8 @@ router.get("/whoami", (req, res) => {
 
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
-  if (req.user) socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
+  if (req.user)
+    socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });
 
@@ -49,7 +50,7 @@ router.post("/initsocket", (req, res) => {
 // anything else falls to this "not found" case
 
 router.get("/status", auth.ensureLoggedIn, (req, res) => {
-  Status.find({ googleid: req.query.googleid}).then((currentStatus) => {
+  Status.find({ googleid: req.query.googleid }).then((currentStatus) => {
     res.send(currentStatus);
   });
 });
@@ -68,27 +69,28 @@ router.get("/profile", (req, res) => {
   });
 });
 
-router.post("/profile", (req, res) => { //GET HELP - how do we save only
+router.post("/profile", (req, res) => {
+  //GET HELP - how do we save only
   //fields that the user(s) changed, while keeping others the same?
   let updatedUser = User.findOneAndUpdate({ googleid: req.query.googleid }, update, {
-      googleid: req.user.googleid,
-      name: req.user.name,
-      counter: req.user.bubbleCount,
-      avatarURL: req.user.avatarURL, 
-      status: req.user.status,
-      socialMedia: req.user.socialMedia,
-      new: true,
-      upsert: true //if no document matches filter (user DNE yet- creates one)
+    googleid: req.user.googleid,
+    name: req.user.name,
+    counter: req.user.bubbleCount,
+    avatarURL: req.user.avatarURL,
+    status: req.user.status,
+    socialMedia: req.user.socialMedia,
+    new: true,
+    upsert: true, //if no document matches filter (user DNE yet- creates one)
   });
 });
 
 //METHOD TO GET CONTACTS
-router.get("/bubbles", (req, res) => { 
+router.get("/bubbles", (req, res) => {
   //GET BUBBLES FOR BUBBLE PG : TODO: how do we randomly get a subset of users?
   Bubble.find({}).then((bubbles) => res.send(bubbles));
 });
 
-router.post("/bubbles", (req, res) => { 
+router.post("/bubbles", (req, res) => {
   //GET BUBBLES FOR BUBBLE PG : TODO: how do we randomly get a subset of users?
   Bubble.find({}).then((bubbles) => res.send(bubbles));
 });
@@ -99,7 +101,8 @@ router.post("/bubbles", (req, res) => {
 
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
-  if (req.user) socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
+  if (req.user)
+    socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });
 
@@ -107,10 +110,16 @@ router.get("/activeUsers", (req, res) => {
   res.send({ activeUsers: socketManager.getAllConnectedUsers() });
 });
 
+// NEW [sophie]
+
+router.get("/users", (req, res) => {
+  User.find({}).then((users) => res.send(users));
+});
+
+module.exports = router;
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
 });
-
-module.exports = router;
