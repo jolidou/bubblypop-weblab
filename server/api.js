@@ -64,10 +64,18 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/socialMedia", (req, res) => {
-  SocialMedia.findById(req.query.userid).then((social) => {
-    res.send(social);
+  SocialMedia.findById(req.query.userid).then((socials) => {
+    res.send(socials);
   });
 });
+
+router.post("/socialMedia", (req, res) => {
+  const newSocial = new SocialMedia({
+    content: req.body.content,
+    type: req.body.type,
+  });
+  newSocial.save().then((social) => res.send(social));
+})
 
 // router.get("/users", (req, res) => {
 //   const newSocial = new SocialMedia({

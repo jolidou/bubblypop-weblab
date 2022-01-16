@@ -1,17 +1,4 @@
-:root {
-  --dark-turq: #7bdff2;
-  --light-turq: #b2f7ef;
-  --mint-cream: #eff7f6;
-  --light-pink: #f7d6e0;
-  --pink: #f2b5d4;
-  --sunflower: #ffcd3c;
-  --dark-lilac: #6892f0;
-
-  --xs: 4px;
-  --s: 8px;
-  --m: 16px;
-  --l: 24px;
-}
+@import "../../utilities.css";
 
 .wrapper {
   height: 100vh;
