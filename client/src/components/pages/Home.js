@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import TestCard from "../modules/TestCard.js";
+
 import { get } from "../../utilities";
 
-import "../../utilities.css";
+// import "../../utilities.css";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -12,20 +14,25 @@ const Home = () => {
     });
   }, []);
 
-  let usersMessage = null;
+  let usersList = null;
   const hasUsers = users.length !== 0;
   if (hasUsers) {
-    usersMessage = <div>We have {users.length} users :)</div>;
+    usersList = users.map((userObj) => (
+      <TestCard
+        key={`TestCard_${userObj._id}`}
+        _id={userObj._id}
+        googleid={userObj.googleid}
+        name={userObj.name}
+      />
+    ));
   } else {
-    usersMessage = <div>No users :(</div>;
+    usersList = <div>No users!</div>;
   }
 
   return (
     <>
-      <div>
-        <h1>Home Page</h1>
-        {usersMessage}
-      </div>
+      <h1>Home Page</h1>
+      {usersList}
     </>
   );
 };
