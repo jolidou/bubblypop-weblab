@@ -6,7 +6,4 @@ const SocialMediaSchema = new mongoose.Schema({
     display: Boolean
 });
 
-// compile model from schema
-// module.exports = mongoose.model("social", SocialSchema);
-
-module.exports = SocialMedia = mongoose.model('social', SocialMediaSchema);
+module.exports = mongoose.model('social', SocialMediaSchema);
