@@ -66,6 +66,18 @@ const NewSocial = (props) => {
   return <NewPostInput defaultText= {props.defaultText} onSubmit={addSocial} />;
 };
 
+const NewBubble = (props) => {
+  const updateStatus = (content) => {
+    const body = { content: content }; 
+    post("/api/status", body).then((status) => {
+      props.addNewBubble(bubble);
+    });
+  };
+
+  return <NewPostInput defaultText="Update Status" onSubmit={updateStatus} />;
+}
+
+
 /**
  * New Story is a New Post component for comments
  *
@@ -99,4 +111,4 @@ const NewSocial = (props) => {
 //   return <NewPostInput defaultText="New Message" onSubmit={sendMessage} />;
 // }
 
-export { NewSocial };
+export { NewSocial, NewBubble };

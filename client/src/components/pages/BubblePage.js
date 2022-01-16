@@ -1,22 +1,47 @@
 import { get } from "../../utilities.js";
 import React, { useState, useEffect} from "react";
-import { StatusUpdate } from "../modules/AddBubble.js";
+import { NewBubble } from "../modules/NewPostInput.js";
+import BubbleCard from "../modules/BubbleCard.js";
 
 import "./BubblePage.css";
 
 const BubblePage = (props) => {
-    console.log(props);
+    const [bubbles, setBubbles] = useState([]);
+    const [display, setDisplay] = useState(true);
 
+    useEffect(() => {
+      get("/api/status").then((bubbleObjs) => {
+        setBubbles(bubbleObjs);
+      });
+    }, []);
+  
+    const addNewBubble = (bubbleObj) => {
+      setBubbles([bubbleObj].concat(bubbles));
+    };
+
+    let bubbleList = null;
+    const hasBubbles = bubbles.length !== 0;
+    if (hasBubbles) {
+      bubbleList = bubbles.map((bubbleObj) => {
+          return (
+              <BubbleCard
+                  key={`Bubble_${bubbleObj._id}`}
+                  bubble_id={bubbleObj._id}
+                  creator_id={bubbleObj.creator_id}
+                  userId={props.userId}
+                  content={bubbleObj.content} />
+          );
+      });
+    } else {
+      bubbleList = <div>No bubbles :(</div>;
+    }
     return (
-        <div>
-            <div>
-{/*                 <StatusUpdate userId={props.status.googleId} status={props.status.content} display={props.bubble.display}/> */}
-                
-            </div>
-        </div>
+      <>
+        {<NewBubble addNewBubble={addNewBubble} />}
+        {bubbleList}
+      </>
     );
-}
-
+  };
 
 /* 
 

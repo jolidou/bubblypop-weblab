@@ -9,8 +9,8 @@ const BubbleCard = (props) => {
     const [status, setStatus] = useState("");
 
     useEffect(() => {
-        get("/api/profile", { parent: props.avatarURL, parent: props.status}).then((avatar, status) => {
-            setAvatar(avatar);
+        get("/api/status", { /* parent: props.avatarURL,  */parent: props.content}).then((avatar, status) => {
+/*             setAvatar(avatar); */
             setStatus(status);
         });
     }, []);
@@ -20,10 +20,10 @@ const BubbleCard = (props) => {
     };
     return (
         <div>
-            <Avatar
+{/*             <Avatar
                 userId={props.userId}
                 avatarURL={props.avatarURL}
-            />
+            /> */}
             <Status
                 content={props.content}
             />
