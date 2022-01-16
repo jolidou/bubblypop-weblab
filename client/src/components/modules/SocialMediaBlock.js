@@ -1,9 +1,8 @@
-import React from "react";
-import SocialMedia from "./SocialMedia.js";
+/* import React from "react";
 
 /* Creates social media block based on if the social media's display is true */
 
-const SocialMediaBlock = (props) => {
+/* const SocialMediaBlock = (props) => {
     let displayedSocialMedia = socials.filter(socialMedia => socialMedia.display === True)
 
     return (
@@ -16,4 +15,4 @@ const SocialMediaBlock = (props) => {
             ))}
         </div>
     )
-}
+} */
