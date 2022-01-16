@@ -50,7 +50,7 @@ const App = () => {
       <div className="App-container">
         <Router>
           <Home path="/" />
-          <Profile path="/profile/:user"/>
+          <Profile path="/profile/:user" />
           <BubblePage path="/bubblepage/:user" userId={userId} />
           <Edit path="/edit-profile/:user" />
           <NotFound default />
