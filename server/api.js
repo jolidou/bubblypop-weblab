@@ -63,6 +63,20 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
   newStatus.save().then((status) => res.send(status));
 });
 
+router.get("/socialMedia", (req, res) => {
+  SocialMedia.findById(req.query.userid).then((social) => {
+    res.send(social);
+  });
+});
+
+router.get("/users", (req, res) => {
+  const newSocial = new SocialMedia({
+    content: req.body.content,
+  });
+  newSocial.save().then((socail) => res.send(social));
+});
+
+
 router.get("/profile", (req, res) => {
   User.find({ parent: req.query.googleid }).then((currentUser) => {
     res.send(currentUser);

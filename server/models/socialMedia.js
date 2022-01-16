@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 
 const SocialMediaSchema = new mongoose.Schema({
-    googleid: String,
-    type: String,
-    display: Boolean
+    content: String
 });
 
 // compile model from schema
