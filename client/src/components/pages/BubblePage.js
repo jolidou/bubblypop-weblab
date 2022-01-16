@@ -5,13 +5,14 @@ import { StatusUpdate } from "../modules/AddBubble.js";
 import "./BubblePage.css";
 
 const BubblePage = (props) => {
+    console.log(props);
 
     return (
         <div>
             <div>
-                status update
+{/*                 <StatusUpdate userId={props.status.googleId} status={props.status.content} display={props.bubble.display}/> */}
+                
             </div>
-            <StatusUpdate userId={props.status.googleId} status={props.status.content} display={props.bubble.display}/>
         </div>
     );
 }

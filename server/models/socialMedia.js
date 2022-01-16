@@ -1,22 +1,9 @@
 const mongoose = require("mongoose");
 
 const SocialMediaSchema = new mongoose.Schema({
-  linkedin: {
-      URL: String, 
-      display: Boolean
-  },
-  instagram: {
-      URL: String,
-      display: Boolean
-  },
-  facebook: {
-      URL: String, 
-      display: Boolean
-  },
-  phoneNumber: {
-      number: Number,
-      display: Boolean
-  }
+    googleid: String,
+    type: String,
+    display: Boolean
 });
 
 // compile model from schema
