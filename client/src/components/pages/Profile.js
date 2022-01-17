@@ -10,6 +10,9 @@ const Profile = (props) => {
   const [status, setStatus] = useState("");
   const [avatar, setAvatar] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   useEffect(() => {
     get(`/api/user`, { userid: props.user }).then((userObj) => {
@@ -35,13 +38,31 @@ const Profile = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    get(`/api/socialMedia`, { user: props.user, type: "facebook" }).then((facebookObj) => {
+      setFacebook(facebookObj);
+    });
+  }, []);
+
+  useEffect(() => {
+    get(`/api/socialMedia`, { user: props.user, type: "instagram" }).then((instagramObj) => {
+      setInstagram(instagramObj);
+    });
+  }, []);
+
+  useEffect(() => {
+    get(`/api/socialMedia`, { user: props.user, type: "phoneNumber" }).then((phoneNumberObj) => {
+      setPhoneNumber(phoneNumberObj);
+    });
+  }, []);
+
   return (
     <>
       <div>
         <h3>LinkedIn: {linkedIn.content}</h3>
-        <h3>Facebook: {linkedIn.content}</h3>
-        <h3>Instagram: {linkedIn.content}</h3>
-        <h3>Phone Number: {linkedIn.content}</h3>
+        <h3>Facebook: {facebook.content}</h3>
+        <h3>Instagram: {instagram.content}</h3>
+        <h3>Phone Number: {phoneNumber.content}</h3>
         <hr></hr>
         <ProfileCard
           userId={user._id}
