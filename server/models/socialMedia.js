@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const SocialMediaSchema = new mongoose.Schema({
+    googleid: String,
     content: String,
     type: String,
 });
