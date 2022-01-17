@@ -88,15 +88,15 @@ const NewStatus = (props) => {
   return <NewPostInput defaultText={props.defaultText} onSubmit={addStatus} />;
 };
 
-const NewTester = (props) => {
-  const addTester = (value) => {
+const NewAvatar = (props) => {
+  const addAvatar = (value) => {
     const body = { user: props.user, content: value };
-    post("/api/tester", body).then((tester) => {
-      props.addNewTester(tester);
+    post("/api/avatar", body).then((avatar) => {
+      props.addNewAvatar(avatar);
     });
   };
 
-  return <NewPostInput defaultText={props.defaultText} onSubmit={addTester} />;
+  return <NewPostInput defaultText={props.defaultText} onSubmit={addAvatar} />;
 };
 
 /**
@@ -132,4 +132,4 @@ const NewTester = (props) => {
 //   return <NewPostInput defaultText="New Message" onSubmit={sendMessage} />;
 // }
 
-export { NewSocial, NewBubble, NewStatus, NewTester };
+export { NewSocial, NewBubble, NewStatus, NewAvatar };

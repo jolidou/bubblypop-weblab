@@ -15,7 +15,7 @@ const Bubble = require("./models/bubble");
 const Contact = require("./models/contact");
 const SocialMedia = require("./models/socialMedia");
 const Status = require("./models/status");
-const Tester = require("./models/tester");
+const Avatar = require("./models/avatar");
 
 // import authentication library
 const auth = require("./auth");
@@ -144,21 +144,6 @@ router.get("/users", (req, res) => {
   User.find({}).then((users) => res.send(users));
 });
 
-router.post("/tester", auth.ensureLoggedIn, (req, res) => {
-  Tester.findOne({ user: req.body.user }).then((tester) => {
-    if (tester != null) {
-      tester.content = req.body.content;
-      tester.save().then((tester) => res.send(tester));
-    } else {
-      const newTester = new Tester({
-        user: req.body.user,
-        content: req.body.content,
-      });
-      newTester.save().then((tester) => res.send(tester));
-    }
-  });
-});
-
 router.get("/status", (req, res) => {
   Status.findOne({ user: req.query.user }).then((status) => res.send(status));
 });
@@ -178,8 +163,23 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
   });
 });
 
-router.get("/tester", (req, res) => {
-  Tester.findOne({ user: req.query.user }).then((tester) => res.send(tester));
+router.get("/avatar", (req, res) => {
+  Avatar.findOne({ user: req.query.user }).then((avatar) => res.send(avatar));
+});
+
+router.post("/avatar", auth.ensureLoggedIn, (req, res) => {
+  Avatar.findOne({ user: req.body.user }).then((avatar) => {
+    if (avatar != null) {
+      avatar.avatarURL = req.body.content;
+      avatar.save().then((avatar) => res.send(avatar));
+    } else {
+      const newAvatar = new Avatar({
+        user: req.body.user,
+        avatarURL: req.body.content,
+      });
+      newAvatar.save().then((avatar) => res.send(avatar));
+    }
+  });
 });
 
 module.exports = router;

@@ -165,7 +165,7 @@
 import React, { useState, useEffect } from "react";
 import "./Edit.css";
 import "../../utilities.css";
-import { NewSocial, NewStatus } from "../modules/NewPostInput.js";
+import { NewSocial, NewStatus, NewAvatar } from "../modules/NewPostInput.js";
 
 import { get } from "../../utilities";
 
@@ -175,17 +175,8 @@ const Edit = (props) => {
   const [fb, setFb] = useState("");
   const [phone, setPhone] = useState("");
   const [social, setSocial] = useState([]);
-
   const [status, setStatus] = useState("");
-
-  //   useEffect(() => {
-  //     document.title = "Edit/Create Profile";
-  //     get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
-  //   }, []);
-
-  //   if (!user) {
-  //     return (<div> Loading! </div>);
-  //   }
+  const [avatar, setAvatar] = useState("");
 
   const addLinkedin = (socialObj) => {
     setLinkedin(socialObj);
@@ -206,16 +197,16 @@ const Edit = (props) => {
     setStatus(statusObj);
   };
 
+  const addAvatar = (avatarObj) => {
+    setAvatar(avatarObj);
+  };
+
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     get(`/api/user`, { userid: props.user }).then((userObj) => {
       setUser(userObj);
     });
-
-    // get(`/api/status`, { googleid: user.googleid }).then((statusObj) => {
-    //   setStatus(statusObj);
-    // });
   }, []);
 
   return (
@@ -223,9 +214,12 @@ const Edit = (props) => {
       {props.user && (
         <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} />
       )}
-      {/* <div className="Profile-avatar">
-            <h1> {user.name} </h1>
-         </div> */}
+      &nbsp;
+      {props.user && (
+        <NewAvatar addNewAvatar={addAvatar} defaultText="Your avatar URL" user={props.user} />
+      )}
+      &nbsp;
+      <hr></hr>
       <div className="wrapper">
         <div className="columnContainer">
           <div className="columnItem">

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const BubbleSchema = new mongoose.Schema({
-  googleid: String,
-  avatarURL: String
+const AvatarSchema = new mongoose.Schema({
+  user: String,
+  avatarURL: String,
 });
 
 // compile model from schema
