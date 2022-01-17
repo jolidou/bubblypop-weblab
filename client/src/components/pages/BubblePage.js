@@ -1,6 +1,6 @@
 import { get } from "../../utilities.js";
 import React, { useState, useEffect } from "react";
-import { NewBubble, NewStatus } from "../modules/NewPostInput.js";
+import { NewBubble } from "../modules/NewPostInput.js";
 import BubbleCard from "../modules/BubbleCard.js";
 
 import "./BubblePage.css";
@@ -9,20 +9,23 @@ const BubblePage = (props) => {
   const [bubbles, setBubbles] = useState([]);
 
   useEffect(() => {
-    get("/api/status").then((bubbleObjs) => {
-      setBubbles(bubbleObjs);
+    get("/api/statuses").then((bubblesExisting) => {
+      setBubbles(bubblesExisting);
+      console.log(bubblesExisting)
     });
   }, []);
+
 
   const addNewBubble = (bubbleObj) => {
     setBubbles([bubbleObj].concat(bubbles));
   };
 
+  console.log(bubbles);
+
   let bubbleList = null;
   const hasBubbles = bubbles.length !== 0;
   if (hasBubbles) {
-    bubbleList = bubbles.map((bubbleObj) => {
-      return (
+    bubbleList = bubbles.map((bubbleObj) => (
         <BubbleCard
           key={`Bubble_${bubbleObj._id}`}
           bubble_id={bubbleObj._id}
@@ -30,8 +33,7 @@ const BubblePage = (props) => {
           userId={props.userId}
           content={bubbleObj.content}
         />
-      );
-    });
+    ));
   } else {
     bubbleList = <div>No bubbles :(</div>;
   }

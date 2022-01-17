@@ -199,6 +199,10 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
   });
 });
 
+router.get("/statuses", (req, res) => {
+  Status.find({}).then((statuses) => res.send(statuses));
+})
+
 router.get("/avatar", (req, res) => {
   Avatar.findOne({ user: req.query.user }).then((avatar) => res.send(avatar));
 });

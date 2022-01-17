@@ -1,33 +1,34 @@
 import React, {useEffect, useState} from "react";
 import { get } from "../../utilities";
 
-import Status from "./Status.js";
-import Avatar from "./Avatar.js";
-
 const BubbleCard = (props) => {
     const [avatar, setAvatar] = useState([]);
     const [status, setStatus] = useState("");
+    
+    const updateStatus = (statusUpdate) => {
+        setStatus(statusUpdate);
+    };
 
     useEffect(() => {
-        get("/api/status", { /* parent: props.avatarURL,  */parent: props.content}).then((avatar, status) => {
-/*             setAvatar(avatar); */
-            setStatus(status);
+        get("/api/status", { user: props.user, content: props.content }).then((statusObj) => {
+            setStatus(statusObj.content);
         });
+        get("/api/avatar", { avatarURL: props.avatarURL }).then((statusObj => {
+            setAvatar(statusObj.avatar);
+        }))
     }, []);
 
-    const updateStatus = (statusUpdate) => {
-        setAvatar(statusUpdate);
-    };
     return (
         <div>
-{/*             <Avatar
+            {/* <Avatar
                 userId={props.userId}
                 avatarURL={props.avatarURL}
-            /> */}
-            <Status
-                content={props.content}
             />
-
+            {props.user && (
+              <NewStatus addNewStatus={updateStatus} defaultText="Your status" user={props.user} />
+            )} */}
+            {props.content}
+            {props.creator_id}
         </div>
     );
 };
