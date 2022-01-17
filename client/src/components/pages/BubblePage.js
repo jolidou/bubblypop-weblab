@@ -11,7 +11,6 @@ const BubblePage = (props) => {
   useEffect(() => {
     get("/api/statuses").then((bubblesExisting) => {
       setBubbles(bubblesExisting);
-      console.log(bubblesExisting)
     });
   }, []);
 
@@ -20,8 +19,6 @@ const BubblePage = (props) => {
     setBubbles([bubbleObj].concat(bubbles));
   };
 
-  console.log(bubbles);
-
   let bubbleList = null;
   const hasBubbles = bubbles.length !== 0;
   if (hasBubbles) {
@@ -29,8 +26,8 @@ const BubblePage = (props) => {
         <BubbleCard
           key={`Bubble_${bubbleObj._id}`}
           bubble_id={bubbleObj._id}
-          creator_id={bubbleObj.creator_id}
-          userId={props.userId}
+          creator_id={bubbleObj.user} //refers to the ID of the creator of the bubble
+          userId={props.userId} //refers to the ID of the current user
           content={bubbleObj.content}
         />
     ));
@@ -39,6 +36,7 @@ const BubblePage = (props) => {
   }
   return (
     <>
+      <h1>Pop Bubbles to Make New Bubs :)</h1>
       {<NewBubble addNewBubble={addNewBubble} />}
       {bubbleList}
     </>
