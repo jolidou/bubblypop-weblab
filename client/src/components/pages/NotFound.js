@@ -5,7 +5,7 @@ import "../../utilities.css";
 const NotFound = (props) => {
   return (
     <div className="rainbow overlay">
-      <p>Oops! We can't find the page you're looking for :(</p>
+      <p className = "popMessage">Oops! We can't find the page you're looking for :(</p>
       <div className="circle pink" />
       <div className="circle turq" />
       <div className="circle yellow" />

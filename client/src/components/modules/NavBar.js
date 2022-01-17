@@ -10,24 +10,24 @@ const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.goo
 const NavBar = ({ userId, handleLogin, handleLogout }) => {
   return (
     <nav className="NavBar-container">
-      <div className="NavBar-title u-inlineBlock">Bubble Pop</div>
+      <div className="NavBar-title u-inlineBlock">BUBBLE POP</div>
       <div className="NavBar-linkContainer u-inlineBlock">
         <Link to="/" className="NavBar-link">
-          Home
+          home
         </Link>
         {userId && (
           <Link to={`/profile/${userId}`} className="NavBar-link">
-            Profile
+            profile
           </Link>
         )}
         {userId && (
           <Link to={`/edit-profile/${userId}`} className="NavBar-link">
-            Edit Profile
+            edit profile
           </Link>
         )}
         {userId && (
           <Link to={`/bubblepage/${userId}`} className="NavBar-link">
-            Bubble Page
+            bubble page
           </Link>
         )}
         {userId ? (

@@ -1,21 +1,29 @@
+@import "../../utilities.css";
+
 .NavBar-container {
   padding: var(--s) var(--m);
-  background-color: var(--primary);
+  font-family: Roboto;
+  background-color: var(--light-turq);
 }
 
 .NavBar-title {
-  color: var(--white);
-  font-size: 20px;
+  color: white;
+  font-style: italic;
+  font-weight: 800;
+  text-shadow: -8px 8px 2px var(--deepest-lilac);
+  font-size: 400%;
 }
 
 .NavBar-linkContainer {
   margin-left: var(--l);
+  color: var(--deepest-lilac);
+  font-size: 130%;
 }
 
 .NavBar-link,
 .NavBar-link:visited {
-  color: var(--white);
-  opacity: 0.6;
+  font-weight: 800;
+  color: var(--deepest-lilac);
   text-decoration: none;
 }
 
@@ -29,4 +37,6 @@
 
 .NavBar-link + .NavBar-link {
   margin-left: var(--m);
+  font-weight: 200px;
+  color: var(--dark-lilac);
 }

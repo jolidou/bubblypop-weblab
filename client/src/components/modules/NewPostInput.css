@@ -1,31 +1,33 @@
 .NewPostInput-input,
 .NewPostInput-button {
-  font-family: "Open Sans";
+  font-family: "Roboto";
+  font-weight: 800px;
   font-size: 14px;
   padding: var(--s) var(--m);
 }
 
 .NewPostInput-input {
   flex-grow: 1;
-  border: var(--darkgrey) 1px solid;
+  border: var(--dark-lilac) 1px solid;
   border-radius: var(--xs) 0 0 var(--xs);
+  box-shadow: var(--light-pink);
   transition: box-shadow 0.1s;
 }
 
 .NewPostInput-input:focus-within {
-  border-color: var(--primary--dim);
+  border-color: var(--dark-turq--dim);
   box-shadow: 0 0 0 var(--xs) rgba(0, 123, 255, 0.25);
 }
 
 .NewPostInput-button {
-  color: var(--primary);
-  border: var(--primary) 1px solid;
+  color: white;
+  border: var(--dark-lilac) 1px solid;
   border-radius: 0 var(--xs) var(--xs) 0;
-  background: none;
+  background-color: var(--pink);
   transition: color 0.1s, background 0.1s;
 }
 
 .NewPostInput-button:hover {
-  color: var(--white);
-  background-color: var(--primary);
+  color: var(--dark-lilac);
+  background-color: var(--sunflower);
 }

@@ -56,7 +56,7 @@ body {
 
 /* TEXT BOX */
 
-p {
+.popMessage {
   position: absolute;
   margin: 0 auto;
   left: 10%;
