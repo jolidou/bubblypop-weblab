@@ -75,7 +75,7 @@ router.post("/socialMedia", (req, res) => {
     type: req.body.type,
   });
   newSocial.save().then((social) => res.send(social));
-})
+});
 
 // router.get("/users", (req, res) => {
 //   const newSocial = new SocialMedia({
