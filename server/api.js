@@ -64,19 +64,55 @@ router.post("/initsocket", (req, res) => {
 //   newStatus.save().then((status) => res.send(status));
 // });
 
+// router.get("/socialMedia", (req, res) => {
+//   SocialMedia.findById(req.query.userid).then((socials) => {
+//     res.send(socials);
+//   });
+// });
+
+// router.post("/socialMedia", (req, res) => {
+//   const newSocial = new SocialMedia({
+//     content: req.body.content,
+//     type: req.body.type,
+//   });
+//   newSocial.save().then((social) => res.send(social));
+// });
+
+// router.get("/socialMedia", (req, res) => {
+//   SocialMedia.findById(req.query.userid).then((socials) => {
+//     res.send(socials);
+//   });
+// });
+
 router.get("/socialMedia", (req, res) => {
-  SocialMedia.findById(req.query.userid).then((socials) => {
-    res.send(socials);
+  SocialMedia.findOne({ user: req.query.user, type: req.query.type }).then((socialMedia) =>
+    res.send(socialMedia)
+  );
+});
+
+router.post("/socialMedia", auth.ensureLoggedIn, (req, res) => {
+  SocialMedia.findOne({ user: req.body.user, type: req.body.type }).then((socialMedia) => {
+    if (socialMedia != null) {
+      socialMedia.content = req.body.content;
+      socialMedia.save().then((socialMedia) => res.send(socialMedia));
+    } else {
+      const newSocialMedia = new SocialMedia({
+        user: req.body.user,
+        type: req.body.type,
+        content: req.body.content,
+      });
+      newSocialMedia.save().then((socialMedia) => res.send(socialMedia));
+    }
   });
 });
 
-router.post("/socialMedia", (req, res) => {
-  const newSocial = new SocialMedia({
-    content: req.body.content,
-    type: req.body.type,
-  });
-  newSocial.save().then((social) => res.send(social));
-});
+// router.post("/socialMedia", (req, res) => {
+//   const newSocial = new SocialMedia({
+//     content: req.body.content,
+//     type: req.body.type,
+//   });
+//   newSocial.save().then((social) => res.send(social));
+// });
 
 // router.get("/users", (req, res) => {
 //   const newSocial = new SocialMedia({

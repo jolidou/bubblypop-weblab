@@ -9,6 +9,7 @@ const Profile = (props) => {
   const [user, setUser] = useState("");
   const [status, setStatus] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
 
   useEffect(() => {
     get(`/api/user`, { userid: props.user }).then((userObj) => {
@@ -28,9 +29,20 @@ const Profile = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    get(`/api/socialMedia`, { user: props.user, type: "linkedIn" }).then((linkedInObj) => {
+      setLinkedIn(linkedInObj);
+    });
+  }, []);
+
   return (
     <>
       <div>
+        <h3>LinkedIn: {linkedIn.content}</h3>
+        <h3>Facebook: {linkedIn.content}</h3>
+        <h3>Instagram: {linkedIn.content}</h3>
+        <h3>Phone Number: {linkedIn.content}</h3>
+        <hr></hr>
         <ProfileCard
           userId={user._id}
           name={user.name}

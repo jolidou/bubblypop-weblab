@@ -219,6 +219,14 @@ const Edit = (props) => {
         <NewAvatar addNewAvatar={addAvatar} defaultText="Your avatar URL" user={props.user} />
       )}
       &nbsp;
+      {props.user && (
+        <NewSocial
+          addNewSocial={addLinkedin}
+          defaultText="Your linkedIn URL"
+          type="linkedIn"
+          user={props.user}
+        />
+      )}
       <hr></hr>
       <div className="wrapper">
         <div className="columnContainer">
