@@ -5,6 +5,14 @@ import BubbleCard from "../modules/BubbleCard.js";
 
 import "./BubblePage.css";
 
+/*TO DO: Problem--
+
+  Refreshing the page required to see new status update
+       "      "   "   causes the bubble popping to reset
+  How to fix? 
+
+*/
+
 const BubblePage = (props) => {
   const [bubbles, setBubbles] = useState([]);
 
