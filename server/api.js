@@ -15,6 +15,7 @@ const Bubble = require("./models/bubble");
 const Contact = require("./models/contact");
 const SocialMedia = require("./models/socialMedia");
 const Status = require("./models/status");
+const Tester = require("./models/tester");
 
 // import authentication library
 const auth = require("./auth");
@@ -141,6 +142,21 @@ router.get("/user", (req, res) => {
 
 router.get("/users", (req, res) => {
   User.find({}).then((users) => res.send(users));
+});
+
+router.post("/tester", auth.ensureLoggedIn, (req, res) => {
+  Tester.findOne({ user: req.body.user }).then((tester) => {
+    if (tester != null) {
+      tester.content = req.body.content;
+      tester.save().then((tester) => res.send(tester));
+    } else {
+      const newTester = new Tester({
+        user: req.body.user,
+        content: req.body.content,
+      });
+      newTester.save().then((tester) => res.send(tester));
+    }
+  });
 });
 
 module.exports = router;
