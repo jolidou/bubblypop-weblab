@@ -57,7 +57,7 @@ const App = () => {
         <Router>
           <Home path="/" />
           <Profile path="/profile/:user" />
-          <BubblePage path="/bubblepage/:user" userId={userId} bubbleCount={counter} />
+          <BubblePage path="/bubblepage/:user" bubbleCount={counter} />
           <Edit path="/edit-profile/:user" />
           <NotFound default />
         </Router>
