@@ -10,7 +10,6 @@ const Edit = (props) => {
   const [insta, setInsta] = useState("");
   const [fb, setFb] = useState("");
   const [phone, setPhone] = useState("");
-  const [social, setSocial] = useState([]);
   const [status, setStatus] = useState("");
   const [avatar, setAvatar] = useState("");
 
