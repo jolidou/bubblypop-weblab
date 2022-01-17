@@ -7,7 +7,6 @@ import "./BubblePage.css";
 
 const BubblePage = (props) => {
     const [bubbles, setBubbles] = useState([]);
-    const [display, setDisplay] = useState(true);
 
     useEffect(() => {
       get("/api/status").then((bubbleObjs) => {
@@ -68,4 +67,19 @@ Basically what I want to do is change props.bubble.display = False when event on
     )
 } */
 
-export default BubblePage;
+/* const PopBubble = (props) => {
+  function hideDiv() {
+    document.getElementsByClassName("displayed").style.display="block";
+  }
+
+  return (
+    <div className="displayed">
+      <form method="POST">
+          <input type="button" name="popBubble" className="enter submit" value="Pop!"  onclick="hideDiv()" />
+      </form>
+    </div>
+    {props.contacts.concat(props.creator_id)};
+  )
+} */
+
+export default BubblePage/*,  PopBubble */;

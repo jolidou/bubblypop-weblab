@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { get } from "../../utilities";
 
-import BubbleCounter from "./BubbleCounter.js";
+import BubbleCounter from "./BubbleCounter.js";/* 
+import SocialMediaBlock from "./SocialMediaBluck.js"; */
 import Status from "./Status.js";
 import Avatar from "./Avatar.js";
 import Contact from "./Contact.js";
+
+import "./ProfileCard.css";
+import "../../utilities.css";
 
 /*
     userId = ID of current user
@@ -17,12 +21,12 @@ import Contact from "./Contact.js";
 */
 
 
-const ProfileCard = (props) => {
+function ProfileCard(props) {
     const [avatar, setAvatar] = useState([]);
     const [status, setStatus] = useState("");
 
     useEffect(() => {
-        get("/api/profile", { parent: props.avatarURL, parent: props.status}).then((avatar, status) => {
+        get("/api/profile", { parent: props.avatarURL, parent: props.status }).then((avatar, status) => {
             setAvatar(avatar);
             setStatus(status);
         });
@@ -32,38 +36,41 @@ const ProfileCard = (props) => {
         setStatus(statusUpdate);
     };
     return (
-        <div>
-            <div>
+        <div className="columnContainer">
+            <div className="columnItem rowContainer">
                 <Avatar
                     userId={props.userId}
-                    avatarURL={props.avatarURL}
-                />
-                <div>{props.name}</div>
+                    avatarURL={props.avatarURL} 
+                    className="rowItem"/>
+                <div><h1>{props.name}</h1></div>
                 <Status
                     content={props.content}
-                />
+                    className="rowItem"/>
             </div>
-            <div>
-{/*                 <SocialMediaBlock 
+{/*             <div>
+                <SocialMediaBlock
                     userId={props.userId}
                     display={props.display}
-                    type={props.type}
-                /> */}
-            </div>
-            <div>
-                <div>Bubble Counter:</div>
+                    type={props.type} />
+            </div> */}
+            <div className="columnItem rowContainer">
+                <div><h1>Bubble Counter:</h1></div>
                 <div>
-                    <BubbleCounter 
+                    <BubbleCounter
                         userId={props.userId}
                         count={props.bubbleCount}
-                    />
+                        className="rowItem"/>
+                </div>
+                <br></br>
+                <div>
+                    <h1>Contacts:</h1> <Contact
+                    userId={props.userId}
+                    members={props.members}
+                    className="rowItem"/>
                 </div>
             </div>
             <div>
-                <Contact 
-                    userId={props.userId}
-                    members={props.members}
-                />
+                
             </div>
         </div>
     );
