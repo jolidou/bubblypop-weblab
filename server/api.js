@@ -64,17 +64,13 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/socialMedia", (req, res) => {
-  SocialMedia.find({ googleid: req.query.googleid , type: req.query.type }).then((socials) => {
+  SocialMedia.findById(req.query.userid).then((socials) => {
     res.send(socials);
   });
-  // SocialMedia.findById(req.query.userid).then((socials) => {
-  //   res.send(socials);
-  // });
 });
 
 router.post("/socialMedia", (req, res) => {
   const newSocial = new SocialMedia({
-    googleid: req.user.googleid,
     content: req.body.content,
     type: req.body.type,
   });

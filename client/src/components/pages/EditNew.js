@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Edit.css";
 import "../../utilities.css";
 import { NewSocial, NewStatus } from "../modules/NewPostInput.js";
 
 import { get } from "../../utilities";
 
-const Edit = (props) => {
+const EditNew = (props) => {
   const [linkedIn, setLinkedin] = useState("");
   const [insta, setInsta] = useState("");
   const [fb, setFb] = useState("");
@@ -48,15 +48,28 @@ const Edit = (props) => {
     get(`/api/user`, { userid: props.user }).then((userObj) => {
       setUser(userObj);
     });
+  }, []);
 
+  useEffect(() => {
+    get(`/api/socialMedia`, { googleid: "100544997551855169576", type: "linkedIn" }).then((socials) => {
+      console.log(socials)
+      setSocial(socials);
+    });
+  }, [user]);
     // get(`/api/status`, { googleid: user.googleid }).then((statusObj) => {
     //   setStatus(statusObj);
-    // });
-  }, []);
+    // }); 
+  
+  useEffect(() => {
+    if (social.length !== 0) {
+      setLinkedin(social[social.length-1].content)
+    }
+  }, [social]);
 
   return (
     <>
       {user.googleid}
+      {linkedIn}
       {props.userId && (
         <NewStatus addNewStatus={addStatus} defaultText="Your status" googleid={user.googleid} />
       )}
@@ -86,18 +99,21 @@ const Edit = (props) => {
                         defaultText="Your linkedIn URL"
                         type="linkedIn"
                         userId={props.userId}
+                        googleid = {user.googleid}
                       />
                     )}
-                    linkedIn
                   </div>
-
+                  <div>
+                    Current linkedIn: {(linkedIn === "") ? "N/A" : linkedIn} 
+                  </div>
                   <div className="rowItem">
                     {props.userId && (
                       <NewSocial
                         addNewSocial={addInsta}
                         defaultText="Your Instagram URL"
-                        type="Instagram"
+                        type="instagram"
                         userId={props.userId}
+                        googleid = {user.googleid}
                       />
                     )}
                     insta
@@ -108,8 +124,9 @@ const Edit = (props) => {
                       <NewSocial
                         addNewSocial={addFb}
                         defaultText="Your Facebook URL"
-                        type="Facebook"
+                        type="facebook"
                         userId={props.userId}
+                        googleid = {user.googleid}
                       />
                     )}
                     fb
@@ -120,8 +137,9 @@ const Edit = (props) => {
                       <NewSocial
                         addNewSocial={addPhone}
                         defaultText="Your Phone Number"
-                        type="Phone"
+                        type="hone"
                         userId={props.userId}
+                        googleid = {user.googleid}
                       />
                     )}
                     phone
@@ -158,6 +176,5 @@ const Edit = (props) => {
       </div>
     </>
   );
-};
-
-export default Edit;
+                    }
+export default EditNew;

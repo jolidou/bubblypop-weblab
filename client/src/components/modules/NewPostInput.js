@@ -56,7 +56,7 @@ const NewPostInput = (props) => {
  */
 const NewSocial = (props) => {
   const addSocial = (value) => {
-    const body = { type: props.type, content: value , googleid: props.googleid};
+    const body = { type: props.type, content: value };
     post("/api/socialMedia", body).then((social) => {
       // display this comment on the screen
       props.addNewSocial(social);
