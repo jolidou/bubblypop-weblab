@@ -220,9 +220,8 @@ const Edit = (props) => {
 
   return (
     <>
-      {user.googleid}
-      {props.userId && (
-        <NewStatus addNewStatus={addStatus} defaultText="Your status" googleid={user.googleid} />
+      {props.user && (
+        <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} />
       )}
       {/* <div className="Profile-avatar">
             <h1> {user.name} </h1>

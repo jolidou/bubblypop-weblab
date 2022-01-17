@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const StatusSchema = new mongoose.Schema({
-  googleid: String,
+  user: String,
   content: String,
 });
 

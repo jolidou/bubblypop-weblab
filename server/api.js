@@ -50,19 +50,19 @@ router.post("/initsocket", (req, res) => {
 
 // anything else falls to this "not found" case
 
-router.get("/status", auth.ensureLoggedIn, (req, res) => {
-  Status.find({ googleid: req.query.googleid }).then((currentStatus) => {
-    res.send(currentStatus);
-  });
-});
+// router.get("/status", auth.ensureLoggedIn, (req, res) => {
+//   Status.find({ googleid: req.query.googleid }).then((currentStatus) => {
+//     res.send(currentStatus);
+//   });
+// });
 
-router.post("/status", auth.ensureLoggedIn, (req, res) => {
-  const newStatus = new Status({
-    googleid: req.user.googleid,
-    content: req.body.content,
-  });
-  newStatus.save().then((status) => res.send(status));
-});
+// router.post("/status", auth.ensureLoggedIn, (req, res) => {
+//   const newStatus = new Status({
+//     googleid: req.user.googleid,
+//     content: req.body.content,
+//   });
+//   newStatus.save().then((status) => res.send(status));
+// });
 
 router.get("/socialMedia", (req, res) => {
   SocialMedia.findById(req.query.userid).then((socials) => {
@@ -157,6 +157,29 @@ router.post("/tester", auth.ensureLoggedIn, (req, res) => {
       newTester.save().then((tester) => res.send(tester));
     }
   });
+});
+
+router.get("/status", (req, res) => {
+  Status.findOne({ user: req.query.user }).then((status) => res.send(status));
+});
+
+router.post("/status", auth.ensureLoggedIn, (req, res) => {
+  Status.findOne({ user: req.body.user }).then((status) => {
+    if (status != null) {
+      status.content = req.body.content;
+      status.save().then((status) => res.send(status));
+    } else {
+      const newStatus = new Status({
+        user: req.body.user,
+        content: req.body.content,
+      });
+      newStatus.save().then((status) => res.send(status));
+    }
+  });
+});
+
+router.get("/tester", (req, res) => {
+  Tester.findOne({ user: req.query.user }).then((tester) => res.send(tester));
 });
 
 module.exports = router;
