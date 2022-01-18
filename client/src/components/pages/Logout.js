@@ -5,7 +5,7 @@ import { useNavigate } from "@reach/router";
 import "./Logout.css";
 import "../../utilities.css";
 
-const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.googleusercontent.com";
+// const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.googleusercontent.com";
 
 const Logout = ({ handleLogin }) => {
   const navigate = useNavigate();
