@@ -5,7 +5,8 @@ import { Link } from "@reach/router";
 import "../../utilities.css";
 import "./NavBar.css";
 
-const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.googleusercontent.com";
+// const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "810319868270-g5a4qu2k272mtcdu5b374h2qo1lrlm7p.apps.googleusercontent.com";
 
 const NavBar = ({ userId, handleLogin, handleLogout }) => {
   return (
