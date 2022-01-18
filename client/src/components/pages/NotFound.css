@@ -1,5 +1,10 @@
 @import "../../utilities.css";
 
+:root {
+  --xTransform: 0;
+  --yTransform: 0;
+}
+
 body {
   padding: 0;
   height: 100%;
@@ -58,19 +63,25 @@ body {
 
 .popMessage {
   position: absolute;
+  text-align: center;
   margin: 0 auto;
   left: 10%;
   top: 40%;
   right: 10%;
-  width: 78vmin;
+  width: 84vmin;
   background-color: var(--mint-cream);
-  padding: 1.125em 1.5em;
+  padding: 1em 1.25em;
   font-size: 3.5vmin;
   font-weight: 400;
   font-style: italic;
   border-radius: 1rem;
   z-index: 4;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+}
+
+.homeLink {
+  align-content: center;
+  font-size: 3vmin;
 }
 
 /* RAINBOW BACKGROUND */
@@ -82,6 +93,10 @@ body {
   top: 0px;
   left: 0px;
   z-index: 1;
+}
+
+.onTop {
+  z-index: 7;
 }
 
 .rainbow {
@@ -110,5 +125,87 @@ body {
   }
   100% {
     background-color: var(--light-turq);
+  }
+}
+
+.floatContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* FLOAT ANIMATION */
+.floating {
+  /* animation-name: floating; */
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+  transition: all 1;
+  -webkit-transition: all 1s;
+  /* margin-left: 30px;
+  margin-top: 5px; */
+}
+
+.floating:nth-child(1n) {
+  animation-name: floating1;
+}
+
+.floating:nth-child(2n) {
+  animation-name: floating2;
+}
+
+.floating:nth-child(3n) {
+  animation-name: floating3;
+}
+
+.floating:nth-child(4n) {
+  animation-name: floating4;
+}
+
+@keyframes floating1 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(100%, -150%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes floating2 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(-100%, -50%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes floating3 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes floating4 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(-150%, 150%);
+  }
+  100% {
+    transform: translate(0%, 0%);
   }
 }
