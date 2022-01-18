@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TestCard from "../modules/TestCard.js";
+import "./Home.css";
 
 import { get } from "../../utilities";
 
@@ -31,8 +32,14 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home Page</h1>
-      {usersList}
+      <div className = "homeTitle"> welcome to bubblypop</div>
+      <div className = "homeTextContainer"> 
+        <div className = "homeText">
+          a fast-growing platform combining the best of 
+          social media and gaming in a highly satisfying, bubbly experience!
+          join our {usersList.length} other users today!
+        </div>
+      </div>
     </>
   );
 };
