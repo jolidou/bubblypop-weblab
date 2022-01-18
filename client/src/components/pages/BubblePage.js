@@ -1,7 +1,7 @@
 import { get } from "../../utilities.js";
 import React, { useState, useEffect } from "react";
 import { NewBubble } from "../modules/NewPostInput.js";
-import BubbleCard from "../modules/BubbleCard.js";
+import BubbleCard2 from "../modules/BubbleCard2.js";
 
 import "./BubblePage.css";
 
@@ -31,13 +31,15 @@ const BubblePage = (props) => {
   const hasBubbles = bubbles.length !== 0;
   if (hasBubbles) {
     bubbleList = bubbles.map((bubbleObj) => (
-        <BubbleCard
+      <div className = "floating">
+        <BubbleCard2
           key={`Bubble_${bubbleObj._id}`}
           bubble_id={bubbleObj._id}
           creator_id={bubbleObj.user} //refers to the ID of the creator of the bubble
           userId={props.userId} //refers to the ID of the current user
           content={bubbleObj.content}
         />
+      </div>
     ));
   } else {
     bubbleList = <div>No bubbles :(</div>;
