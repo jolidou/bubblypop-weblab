@@ -6,6 +6,7 @@ import Profile from "./pages/Profile.js";
 import BubblePage from "./pages/BubblePage.js";
 import Edit from "./pages/Edit.js";
 import Home from "./pages/Home.js";
+import Logout from "./pages/Logout.js";
 
 import { socket } from "../client-socket.js";
 
@@ -50,20 +51,35 @@ const App = () => {
     setCounter(counter + 1);
   };
 
-  return (
-    <>
-      <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-      <div className="App-container">
-        <Router>
-          <Home path="/" />
-          <Profile path="/profile/:user" />
-          <BubblePage path="/bubblepage/:user" bubbleCount={counter} />
-          <Edit path="/edit-profile/:user" />
-          <NotFound default />
-        </Router>
-      </div>
-    </>
-  );
+  if (userId) {
+    return (
+      <>
+        <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <div className="App-container">
+          <Router>
+            <Home path="/" />
+            {userId && <Profile path="/profile/" user={userId} />}
+            {userId && <BubblePage path="/bubblepage/" user={userId} bubbleCount={counter} />}
+            {userId && <Edit path="/edit-profile/" user={userId} />}
+            <NotFound default />
+          </Router>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <div className="App-container">
+          <Router>
+            <Home path="/" />
+            <Logout path="/logout/" handleLogin={handleLogin} />
+            <NotFound default />
+          </Router>
+        </div>
+      </>
+    );
+  }
 };
 
 export default App;

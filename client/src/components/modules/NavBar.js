@@ -16,28 +16,31 @@ const NavBar = ({ userId, handleLogin, handleLogout }) => {
           home
         </Link>
         {userId && (
-          <Link to={`/profile/${userId}`} className="NavBar-link">
+          // <Link to={`/profile/${userId}`} className="NavBar-link">
+          <Link to={`/profile/`} className="NavBar-link">
             profile
           </Link>
         )}
         {userId && (
-          <Link to={`/edit-profile/${userId}`} className="NavBar-link">
+          <Link to={`/edit-profile/`} className="NavBar-link">
             edit profile
           </Link>
         )}
         {userId && (
-          <Link to={`/bubblepage/${userId}`} className="NavBar-link">
+          <Link to={`/bubblepage/`} className="NavBar-link">
             bubble page
           </Link>
         )}
         {userId ? (
-          <GoogleLogout
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={handleLogout}
-            onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
-          />
+          <Link to={"/logout/"} className="NavBar-link">
+            <GoogleLogout
+              clientId={GOOGLE_CLIENT_ID}
+              buttonText="Logout"
+              onLogoutSuccess={handleLogout}
+              onFailure={(err) => console.log(err)}
+              className="NavBar-link NavBar-login"
+            />
+          </Link>
         ) : (
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
