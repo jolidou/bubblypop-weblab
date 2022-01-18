@@ -67,7 +67,7 @@ const Edit = (props) => {
       <div className = "columnItem box">
             <h1 className = "boxHeader"> account info </h1>
             {props.user && (
-              <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} />
+              <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} name = {user.name} />
             )}
             &nbsp;
             {props.user && (

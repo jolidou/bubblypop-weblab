@@ -1,64 +1,93 @@
 @import "../../utilities.css";
+@import "../modules/BubbleCard.css";
+
+.bubblePageContainer {
+  padding: var(--s) var(--m);
+  font-family: Roboto;
+  width: 100%;
+  margin-top: 0;
+}
+
+.bubblePageTitleContainer {
+  position: relative;
+  text-align: center;
+  font-size: 200%;
+  font-style: italic;
+  font-weight: bolder;
+  right: 2%;
+  margin-bottom: var(--l);
+  color: white;
+  background-color: var(--sunflower);
+  padding: 10px;
+  border-radius: var(--l);
+}
+
+.bubbleListContainer {
+  max-width: 200vmin;
+  align-items: center;
+  align-content: center;
+  margin-top: var(--l);
+  background-color: var(--mint-cream);
+  border: 8px var(--deepest-lilac);
+  overflow: hidden;
+}
 
 /* FLOAT ANIMATION */
 .floating {
   /* animation-name: floating; */
-  animation-duration: 8s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  will-change: transform;
-  transition: all 1;
-  -webkit-transition: all 1s;
   /* margin-left: 30px;
   margin-top: 5px; */
 }
 
-.floating:nth-child(1n) {
-  animation-name: floating1;
+.bubbleFloating:nth-child(1n) {
+  animation-name: bubfloat1;
 }
 
-.floating:nth-child(2n) {
-  animation-name: floating2;
+.bubbleFloating:nth-child(2n) {
+  animation-name: bubfloat2;
 }
 
-.floating:nth-child(3n) {
-  animation-name: floating3;
+.bubbleFloating:nth-child(3n) {
+  animation-name: bubfloat3;
 }
 
-.floating:nth-child(4n) {
+.bubbleFloating:nth-child(4n) {
   animation-name: floating4;
 }
 
-@keyframes floating1 {
+@keyframes bubfloat1 {
   0% {
     transform: translate(0%, 0%);
   }
   50% {
-    transform: translate(100%, -150%);
+    transform: translate(5px, 5px);
   }
   100% {
     transform: translate(0%, 0%);
   }
 }
 
-@keyframes floating2 {
+@keyframes bubfloat2 {
   0% {
     transform: translate(0%, 0%);
   }
   50% {
-    transform: translate(-100%, -50%);
+    transform: translate(10px, -10px);
   }
   100% {
     transform: translate(0%, 0%);
   }
 }
 
-@keyframes floating3 {
+@keyframes bubfloat3 {
   0% {
     transform: translate(0%, 0%);
   }
   50% {
-    transform: translate(100%, 100%);
+    transform: translate(5px, 5px);
   }
   100% {
     transform: translate(0%, 0%);
@@ -70,7 +99,7 @@
     transform: translate(0%, 0%);
   }
   50% {
-    transform: translate(-150%, 150%);
+    transform: translate(-10px, 10px);
   }
   100% {
     transform: translate(0%, 0%);

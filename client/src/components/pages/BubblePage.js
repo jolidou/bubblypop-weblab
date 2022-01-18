@@ -31,11 +31,12 @@ const BubblePage = (props) => {
   const hasBubbles = bubbles.length !== 0;
   if (hasBubbles) {
     bubbleList = bubbles.map((bubbleObj) => (
-      <div className = "floating">
+      <div className = "floating" key = {`BubbleContainer_${bubbleObj._id}`}>
         <BubbleCard2
           key={`Bubble_${bubbleObj._id}`}
           bubble_id={bubbleObj._id}
           creator_id={bubbleObj.user} //refers to the ID of the creator of the bubble
+          name = {bubbleObj.name}
           userId={props.userId} //refers to the ID of the current user
           content={bubbleObj.content}
         />
@@ -46,9 +47,13 @@ const BubblePage = (props) => {
   }
   return (
     <>
-      <h1>Pop Bubbles to Make New Bubs :)</h1>
-      {<NewBubble addNewBubble={addNewBubble} />}
-      {bubbleList}
+      <div className = "bubblePageContainer">
+        <div className = "bubblePageTitleContainer">
+          pop bubbles to make new bubs! :)
+        </div>
+        {<NewBubble addNewBubble={addNewBubble} />}
+        <div className = "bubbleListContainer"> {bubbleList} </div>
+      </div>
     </>
   );
 };

@@ -3,10 +3,10 @@
 .bubbleContainer {
   border-radius: 50%;
   overflow: hidden;
-  width: 20vmin;
-  height: 20vmin;
+  width: 30vmin;
+  height: 30vmin;
   padding: 5vmin;
-  background-color: var(--dark-turq);
+  /* background-color: var(--dark-turq); */
 }
 
 .bubbleContent {
@@ -23,8 +23,8 @@
 
 .bubbleStatus {
   color: var(--mint-cream);
-  font-family: italic;
-  font-size: 10px;
+  font-family: "Roboto";
+  font-size: 20px;
 }
 
 .Bubble-status {
@@ -124,4 +124,22 @@
 
 .bubbleButton:hover {
   color: var(--deepest-lilac);
+}
+
+/* BUBBLE COLOR */
+
+.bubbleContainer:nth-child(1n) {
+  background-color: var(--dark-turq);
+}
+
+.bubbleContainer:nth-child(2n) {
+  background-color: var(--pink);
+}
+
+.bubbleContainer:nth-child(3n) {
+  background-color: var(--deepest-lilac);
+}
+
+.bubbleContainer:nth-child(4n) {
+  background-color: var(--light-turq);
 }

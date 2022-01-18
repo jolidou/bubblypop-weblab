@@ -4,7 +4,7 @@ import { get } from "../../utilities";
 import "./BubbleCard.css";
 import "../../utilities.css";
 
-const BubbleCard = (props) => {
+const BubbleCard2 = (props) => {
     const [avatar, setAvatar] = useState([]);
     const [status, setStatus] = useState("");
     
@@ -29,7 +29,7 @@ const BubbleCard = (props) => {
         <div>
             <div id = "bubble" className="bubbleContainer">
                 <div className = "bubbleContent">
-                    <p className = "bubbleUser"> {props.creator_id} </p>
+                    <p className = "bubbleUser"> {props.name} </p>
                     <div className = "bubbleStatus"> {props.content} </div>
                     <button className = "bubbleButton" onClick= {hideDiv} > Pop!</button>
                 </div>
@@ -38,4 +38,4 @@ const BubbleCard = (props) => {
     );
 };
 
-export default BubbleCard;
+export default BubbleCard2;

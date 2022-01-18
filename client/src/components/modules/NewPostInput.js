@@ -79,7 +79,7 @@ const NewBubble = (props) => {
 
 const NewStatus = (props) => {
   const addStatus = (value) => {
-    const body = { user: props.user, content: value };
+    const body = { user: props.user, content: value, name: props.name };
     post("/api/status", body).then((status) => {
       props.addNewStatus(status);
     });

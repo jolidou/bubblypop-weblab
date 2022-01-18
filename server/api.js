@@ -192,6 +192,7 @@ router.post("/status", auth.ensureLoggedIn, (req, res) => {
     } else {
       const newStatus = new Status({
         user: req.body.user,
+        name: req.body.name,
         content: req.body.content,
       });
       newStatus.save().then((status) => res.send(status));

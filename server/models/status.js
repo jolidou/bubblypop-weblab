@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const StatusSchema = new mongoose.Schema({
   user: String,
+  name: String,
   content: String,
 });
 
