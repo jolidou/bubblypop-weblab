@@ -7,12 +7,11 @@ const NotFound = (props) => {
   return (
     <div className="rainbow overlay">
       <p className = "popMessage">
-        Oops! We can't find the page you're looking for :(
-        <div>
+         Oops! We can't find the page you're looking for :( 
+          <br></br>
           <Link to="/" className = "homeLink">
             Return to Home
           </Link>
-        </div>
       </p>
       <div className="circle pink floating"/>
       <div className="circle turq floating" />
