@@ -10,7 +10,7 @@ const GOOGLE_CLIENT_ID = "810319868270-ctj3rbt6ivtlc61roqv8top021nmccvj.apps.goo
 const NavBar = ({ userId, handleLogin, handleLogout }) => {
   return (
     <nav className="NavBar-container">
-      <div className="NavBar-title u-inlineBlock">BUBBLE POP</div>
+      <div className="NavBar-title u-inlineBlock">BUBBLYPOP</div>
       <div className="NavBar-linkContainer u-inlineBlock">
         <Link to="/" className="NavBar-link">
           home
