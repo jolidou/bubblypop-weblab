@@ -1,7 +1,25 @@
-.Card-container {
+@import "../../utilities.css";
+
+.Bubble-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   border: var(--dark-turq) 1px solid;
-  border-radius: var(--xs);
+  border-radius: 0;
+  width: 200px;
+  height: 200px;
   margin-top: var(--m);
+  background-color: var(--dark-turq);
+}
+
+.Bubble-name {
+  font-size: 20px;
+  flex: 0;
+}
+
+.Bubble-status {
+  font-size: 10px;
+  flex: 1;
 }
 
 .Card-container:first-of-type {

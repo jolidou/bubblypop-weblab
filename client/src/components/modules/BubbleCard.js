@@ -27,11 +27,10 @@ const BubbleCard = (props) => {
 
     return (
         <div>
-            <div id = "bubble" className="Card-container">
-                {props.creator_id}   ||   {props.content}
-                <div>
-                    <button onClick= {hideDiv} >Pop!</button>
-                </div>
+            <div id = "bubble" className="rowContainer">
+                <div className = "rowItem"> {props.creator_id} </div>
+                <div className = "rowItem"> {props.content} </div>
+                <button className = "bubbleButton" onClick= {hideDiv} > Pop!</button>
             </div>
         </div>
     );
