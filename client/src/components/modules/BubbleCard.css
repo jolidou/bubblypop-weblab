@@ -1,20 +1,30 @@
 @import "../../utilities.css";
 
-.Bubble-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: var(--dark-turq) 1px solid;
-  border-radius: 0;
-  width: 200px;
-  height: 200px;
-  margin-top: var(--m);
+.bubbleContainer {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 20vmin;
+  height: 20vmin;
+  padding: 5vmin;
   background-color: var(--dark-turq);
 }
 
-.Bubble-name {
+.bubbleContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bubbleUser {
+  color: white;
+  font-weight: bold;
   font-size: 20px;
-  flex: 0;
+}
+
+.bubbleStatus {
+  color: var(--mint-cream);
+  font-family: italic;
+  font-size: 10px;
 }
 
 .Bubble-status {
@@ -48,4 +58,70 @@
 
 .Card-commentBody {
   margin: 0 0 var(--s);
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.boxHeader {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: bold;
+  font-size: 50px;
+  color: var(--mint-cream);
+}
+
+.rowContainer {
+  display: flex;
+  border-radius: 10%;
+  flex-direction: column;
+  border: 5px var(--dark-lilac);
+  justify-content: space-between;
+}
+
+.rowItem {
+  height: 100%;
+  margin: 10px;
+  align-content: center;
+  background-color: var(--mint-cream);
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.columnItem {
+  order: 0 1;
+  width: 100%;
+  align-items: center;
+  margin: var(--s) var(--l);
+  padding: 0 0 60px 0;
+  background-color: var(--dark-lilac);
+  border: 3px solid var(--dark-lilac);
+  border-radius: 2%;
+}
+
+.edit-Avatar {
+  border-radius: 50%;
+}
+
+.bubbleButton {
+  width: 20vmin;
+  height: 5vmin;
+  font-weight: 800;
+  font-style: italic;
+  padding: 0.5%;
+  margin-top: 5vmin;
+  background-color: var(--sunflower);
+  border: 1px white;
+  border-radius: 10px;
+  color: var(--mint-cream);
+}
+
+.bubbleButton:hover {
+  color: var(--deepest-lilac);
 }
