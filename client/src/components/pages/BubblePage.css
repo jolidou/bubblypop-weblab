@@ -1,0 +1,78 @@
+@import "../../utilities.css";
+
+/* FLOAT ANIMATION */
+.floating {
+  /* animation-name: floating; */
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+  transition: all 1;
+  -webkit-transition: all 1s;
+  /* margin-left: 30px;
+  margin-top: 5px; */
+}
+
+.floating:nth-child(1n) {
+  animation-name: floating1;
+}
+
+.floating:nth-child(2n) {
+  animation-name: floating2;
+}
+
+.floating:nth-child(3n) {
+  animation-name: floating3;
+}
+
+.floating:nth-child(4n) {
+  animation-name: floating4;
+}
+
+@keyframes floating1 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(100%, -150%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes floating2 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(-100%, -50%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes floating3 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes floating4 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(-150%, 150%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
