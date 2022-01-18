@@ -42,19 +42,19 @@
   margin-top: 5px; */
 }
 
-.bubbleFloating:nth-child(1n) {
+.floating:nth-child(1n) {
   animation-name: bubfloat1;
 }
 
-.bubbleFloating:nth-child(2n) {
+.floating:nth-child(2n) {
   animation-name: bubfloat2;
 }
 
-.bubbleFloating:nth-child(3n) {
+.floating:nth-child(3n) {
   animation-name: bubfloat3;
 }
 
-.bubbleFloating:nth-child(4n) {
+.floating:nth-child(4n) {
   animation-name: floating4;
 }
 
