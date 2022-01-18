@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 const BubbleSchema = new mongoose.Schema({
-  googleid: String,
+  user: String,
   status: String, 
+  name: String,
   display: Boolean
 });
 

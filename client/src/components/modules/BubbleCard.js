@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { get } from "../../utilities";
 
+import "./BubbleCard.css";
+import "../../utilities.css";
+
 const BubbleCard = (props) => {
     const [avatar, setAvatar] = useState([]);
     const [status, setStatus] = useState("");
@@ -18,17 +21,17 @@ const BubbleCard = (props) => {
         }))
     }, []);
 
+    function hideDiv() {
+        document.getElementById("bubble").style.display="none";
+    }
+
     return (
         <div>
-            {/* <Avatar
-                userId={props.userId}
-                avatarURL={props.avatarURL}
-            />
-            {props.user && (
-              <NewStatus addNewStatus={updateStatus} defaultText="Your status" user={props.user} />
-            )} */}
-            {props.content}
-            {props.creator_id}
+            <div id = "bubble" className="rowContainer">
+                <div className = "rowItem"> {props.creator_id} </div>
+                <div className = "rowItem"> {props.content} </div>
+                <button className = "bubbleButton" onClick= {hideDiv} > Pop!</button>
+            </div>
         </div>
     );
 };
