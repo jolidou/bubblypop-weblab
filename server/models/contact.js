@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ContactSchema = new mongoose.Schema({
-  googleid: String, 
+  user: String,
   type: String, 
   members: [String] // list of Google IDs of contacts of this type
 });

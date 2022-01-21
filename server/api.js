@@ -223,6 +223,29 @@ router.post("/avatar", auth.ensureLoggedIn, (req, res) => {
   });
 });
 
+//CONTACT METHODS:
+router.get("/contact", auth.ensureLoggedIn, (req, res) => {
+  Contact.find({ user: req.body.user }).then((contactMembers) => res.send(contactMembers));
+});
+
+router.post("/contact", auth.ensureLoggedIn, (req, res) => {
+  Contact.find({ user: req.body.user, type: req.body.type }).then((contacts) => {
+    if (contacts != null) {
+      //contact post body must have members in a LIST
+      contacts.members.concat([req.body.content]);
+      contacts.save().then((contacts) => res.send(contacts));
+    } else {
+      const newContact = new Contact({
+        user: req.body.user,
+        type: req.body.type,
+        members: req.body.members,
+      });
+      newContact.save().then((contacts) => res.send(contacts));
+    }
+  });
+});
+
+
 module.exports = router;
 
 // anything else falls to this "not found" case

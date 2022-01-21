@@ -18,8 +18,9 @@ const BubbleCard = (props) => {
         });
         get("/api/avatar", { avatarURL: props.avatarURL }).then((statusObj => {
             setAvatar(statusObj.avatar);
-        }))
+        }));
     }, []);
+
 
     function hideDiv() {
         document.getElementById("bubble").style.display="none";
