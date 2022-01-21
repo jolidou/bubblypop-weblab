@@ -45,11 +45,13 @@ const App = () => {
     post("/api/logout");
   };
 
-  const [counter, setCounter] = useState(0);
+  const[bubbleCount, setBubbleCount] = useState(null)
 
-  const incrementCounter = () => {
-    setCounter(counter + 1);
-  };
+  useEffect(() => {
+    get("/api/profile").then((user) => {
+      setBubbleCount(user.bubbleCount);
+    });
+  }, []);
 
   if (userId) {
     return (
@@ -59,7 +61,7 @@ const App = () => {
           <Router>
             <Home path="/" />
             {userId && <Profile path="/profile/" user={userId} />}
-            {userId && <BubblePage path="/bubblepage/" user={userId} bubbleCount={counter} />}
+            {userId && <BubblePage path="/bubblepage/" user={userId} bubbleCount={bubbleCount} />}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
           </Router>

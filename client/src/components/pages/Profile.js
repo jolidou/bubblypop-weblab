@@ -70,7 +70,7 @@ const Profile = (props) => {
           avatarURL={avatar.avatarURL}
           content={status.content}
           display={props.display}
-          bubbleCount="0"
+          bubbleCount={props.count}
           members={props.members} //TODO: link googleid of contacts-- add to api.js
         />
       </div>

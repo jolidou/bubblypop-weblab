@@ -4,9 +4,7 @@ import { Link } from "@reach/router";
 const BubbleCounter = (props) => {
     return(
         <div>
-            <Link to={`/profile/${props.userId}`}>
-                {props.count}
-            </Link>
+            {props.count}
         </div>
     )
 }

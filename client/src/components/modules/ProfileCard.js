@@ -47,12 +47,6 @@ function ProfileCard(props) {
                     content={props.content}
                     className="rowItem"/>
             </div>
-{/*             <div>
-                <SocialMediaBlock
-                    userId={props.userId}
-                    display={props.display}
-                    type={props.type} />
-            </div> */}
             <div className="columnItem rowContainer">
                 <div><h1>Bubble Counter:</h1></div>
                 <div>
