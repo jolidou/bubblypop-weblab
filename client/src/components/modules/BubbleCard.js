@@ -26,7 +26,7 @@ const BubbleCard = (props) => {
         document.getElementById("bubble").style.display="none";
     }
     const addContact = (newContact) => {
-        setContacts([newContact].concat(contacts));
+        setBubbles([newContact].concat(contacts));
       };
 
     function popBubble() {
