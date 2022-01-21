@@ -34,8 +34,8 @@ const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = process.env.ATLAS_SRV;
-// "mongodb+srv://sophiez:hpr86zg4@cluster0.tllaw.mongodb.net/BubblePop?retryWrites=true&w=majority";
+// const mongoConnectionURL = process.env.ATLAS_SRV;
+const mongoConnectionURL = "mongodb+srv://sophiez:hpr86zg4@cluster0.tllaw.mongodb.net/BubblePop?retryWrites=true&w=majority";
 // TODO change database name to the name you chose
 const databaseName = "BubblePop";
 
@@ -59,7 +59,8 @@ app.use(express.json());
 // set up a session, which will persist login data across requests
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: "session-secret",
+    // secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
