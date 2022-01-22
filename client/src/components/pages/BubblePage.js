@@ -32,14 +32,14 @@ const BubblePage = (props) => {
   if (hasBubbles) {
     bubbleList = bubbles.map((bubbleObj) => (
       <div className = "floating" key = {`BubbleContainer_${bubbleObj._id}`}>
-        {bubbleObj._id !== props.userId 
-          && !props.contacts.includes(bubbleObj._id)
+        {bubbleObj.user !== props.user
+          /* && !props.contacts.includes(bubbleObj.user) */
           && <BubbleCard2
               key={`Bubble_${bubbleObj._id}`}
               bubble_id={bubbleObj._id}
               creator_id={bubbleObj.user} //refers to the ID of the creator of the bubble
               name = {bubbleObj.name}
-              userId={props.userId} //refers to the ID of the current user
+              userId={props.user} //refers to the ID of the current user
               content={bubbleObj.content}
           />
         }
