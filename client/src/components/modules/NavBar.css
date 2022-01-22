@@ -1,8 +1,14 @@
 @import "../../utilities.css";
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .NavBar-container {
   padding: var(--s) var(--m);
   font-family: Roboto;
+  width: 100%;
   background-color: var(--light-turq);
 }
 

@@ -32,13 +32,15 @@ const Home = () => {
 
   return (
     <>
-      <div className = "homeTitle"> welcome to bubblypop</div>
-      <div className = "homeTextContainer"> 
-        <div className = "homeText">
-          a fast-growing platform combining the best of 
-          social media and gaming in a highly satisfying, bubbly experience!
-          join our {usersList.length} other users today!
-        </div>
+      <div className = "homeBackground">
+        <div className = "homeTitle"> welcome to bubblypop</div>
+        <div className = "homeTextContainer"> 
+          <div className = "homeText">
+            a fast-growing platform combining the best of 
+            social media and gaming in a highly satisfying, bubbly experience!
+            join our {usersList.length} other users today!
+          </div>
+      </div>
       </div>
     </>
   );

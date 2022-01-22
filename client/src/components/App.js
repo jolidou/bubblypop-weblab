@@ -7,6 +7,7 @@ import BubblePage from "./pages/BubblePage.js";
 import Edit from "./pages/Edit.js";
 import Home from "./pages/Home.js";
 import Logout from "./pages/Logout.js";
+// import Navigation from "./modules/Navigation.js";
 
 import { socket } from "../client-socket.js";
 
@@ -56,7 +57,10 @@ const App = () => {
   if (userId) {
     return (
       <>
-        <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        {/* <Navigation handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <div className = "navContainer">
+        <NavBar className = "navContainer" path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        </div>
         <div className="App-container">
           <Router>
             <Home path="/" />
@@ -71,7 +75,11 @@ const App = () => {
   } else {
     return (
       <>
-        <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        {/* <Navigation handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <div>
+        <div className = "navContainer">
+          <NavBar path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        </div>
         <div className="App-container">
           <Router>
             <Home path="/" />
@@ -79,6 +87,7 @@ const App = () => {
             <NotFound default />
           </Router>
         </div>
+         </div>
       </>
     );
   }
