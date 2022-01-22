@@ -56,14 +56,13 @@ const Profile = (props) => {
     });
   }, []);
 
+  // let linkedInURL = "https://www.linkedin.com/in/" + linkedIn.content;
+  // let facebookURL = "https://www.facebook.com/" + facebook.content;
+  // let instagramURL = "https://www.instagram.com/" + instagram.content;
+
   return (
     <>
       <div>
-        <h3>LinkedIn: {linkedIn.content}</h3>
-        <h3>Facebook: {facebook.content}</h3>
-        <h3>Instagram: {instagram.content}</h3>
-        <h3>Phone Number: {phoneNumber.content}</h3>
-        <hr></hr>
         <ProfileCard
           userId={user._id}
           name={user.name}
@@ -72,6 +71,12 @@ const Profile = (props) => {
           display={props.display}
           bubbleCount={props.count}
           members={props.members} //TODO: link googleid of contacts-- add to api.js
+
+          linkedInURL = {"https://www.linkedin.com/in/" + linkedIn.content}
+          facebookURL = {"https://www.facebook.com/" + facebook.content}
+          instagramURL = {"https://www.instagram.com/" + instagram.content}
+          phoneNumber = {phoneNumber.content}
+
         />
       </div>
     </>

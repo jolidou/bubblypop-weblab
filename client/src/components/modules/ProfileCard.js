@@ -36,7 +36,9 @@ function ProfileCard(props) {
         setStatus(statusUpdate);
     };
     return (
+        
         <div className="columnContainer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
             <div className="columnItem rowContainer">
                 <Avatar
                     userId={props.userId}
@@ -46,6 +48,13 @@ function ProfileCard(props) {
                 <Status
                     content={props.content}
                     className="rowItem"/>
+                &nbsp;
+                <div>
+                    <a href={props.linkedInURL} target="_blank" class="fa fa-linkedin"></a>
+                    <a href={props.facebookURL} target="_blank" class="fa fa-facebook"></a>
+                    <a href={props.instagramURL} target="_blank" class="fa fa-instagram"></a>
+                    <a title={props.phoneNumber} class="fa fa-phone"></a>
+                </div>
             </div>
             <div className="columnItem rowContainer">
                 <div><h1>Bubble Counter:</h1></div>

@@ -33,3 +33,40 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+  width: 30px;
+  height: auto
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  width: 30px;
+  height: auto
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+  width: 30px;
+  height: auto
+}
+
+.fa-phone {
+  background: #800000;
+  color: white;
+  width: 30px;
+  height: auto
+}
