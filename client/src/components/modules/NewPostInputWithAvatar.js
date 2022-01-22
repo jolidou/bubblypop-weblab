@@ -124,14 +124,11 @@ const NewAvatar = (props) => {
       fileReader.onload = function (fileLoadedEvent) {
         var srcData = fileLoadedEvent.target.result;
         console.log(srcData);
-        setValue("ASDFG");
+        setValue(srcData);
         console.log(value);
         var newImage = document.createElement("img");
         newImage.src = srcData;
-        // setValue("HELLO");
-        // console.log("HELLO");
-        // console.log(value);
-        document.getElementById("dummy").innerHTML = newImage.outerHTML;
+        // document.getElementById("dummy").innerHTML = newImage.outerHTML;
         // console.log(document.getElementById("dummy").innerHTML);
       };
       fileReader.readAsDataURL(imageFile);
@@ -149,42 +146,9 @@ const NewAvatar = (props) => {
       >
         Upload
       </button>
-      <div id="dummy"></div>
+      {/* <div width="300" height="auto" id="dummy"></div> */}
     </div>
   );
 };
-
-/**
- * New Story is a New Post component for comments
- *
- * Proptypes
- * @param {string} defaultText is the placeholder text
- */
-// const NewStory = (props) => {
-//   const addStory = (value) => {
-//     const body = { content: value };
-//     post("/api/story", body).then((story) => {
-//       // display this story on the screen
-//       props.addNewStory(story);
-//     });
-//   };
-
-//   return <NewPostInput defaultText="New Story" onSubmit={addStory} />;
-// };
-
-// /**
-//  * New Message is a New Message component for messages
-//  *
-//  * Proptypes
-//  * @param {UserObject} recipient is the intended recipient
-//  */
-// const NewMessage = (props) => {
-//   const sendMessage = (value) => {
-//     const body = { recipient: props.recipient, content: value };
-//     post("/api/message", body);
-//   };
-
-//   return <NewPostInput defaultText="New Message" onSubmit={sendMessage} />;
-// }
 
 export { NewSocial, NewBubble, NewStatus, NewAvatar };

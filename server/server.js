@@ -22,6 +22,7 @@ require("dotenv").config();
 //import libraries needed for the webserver to work!
 const http = require("http");
 const express = require("express"); // backend framework for our node server.
+
 const session = require("express-session"); // library that stores info about each connected user
 const mongoose = require("mongoose"); // library to connect to MongoDB
 const path = require("path"); // provide utilities for working with file and directory paths
@@ -51,6 +52,9 @@ mongoose
 
 // create a new express server
 const app = express();
+app.use(express.json({
+  limit: '50mb'
+}));
 app.use(validator.checkRoutes);
 
 // allow us to process POST requests

@@ -66,13 +66,14 @@ const Edit = (props) => {
       </div>
       <div className = "columnItem box">
             <h1 className = "boxHeader"> account info </h1>
-            {props.user && (
+            {/* {props.user && (
               <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} name = {user.name} />
-            )}
+            )} */}
             &nbsp;
-            {props.user && (
+            {/* {props.user && (
               <NewAvatar addNewAvatar={addAvatar} defaultText="Your avatar URL" user={props.user} />
-            )}
+            )} */}
+            {props.user && <NewAvatar addNewAvatar={addAvatar} user={props.user} />}
       </div>
     </div>
       {/* <div className="wrapper">

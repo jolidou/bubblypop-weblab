@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Edit.css";
 import "../../utilities.css";
-import { NewSocial, NewStatus, NewAvatar } from "../modules/NewPostInput.js";
+import { NewSocial, NewStatus, NewAvatar } from "../modules/NewPostInputWithAvatar.js";
 import SocialCard from "../modules/SocialCard.js";
 
 import { get } from "../../utilities";
