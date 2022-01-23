@@ -125,10 +125,11 @@ const NewAvatar = (props) => {
         var srcData = fileLoadedEvent.target.result;
         console.log(srcData);
         setValue(srcData);
-        console.log(value);
         var newImage = document.createElement("img");
         newImage.src = srcData;
-        // document.getElementById("dummy").innerHTML = newImage.outerHTML;
+        newImage.style.width = "300px";
+        newImage.style.height = "auto";
+        document.getElementById("dummy").innerHTML = newImage.outerHTML;
         // console.log(document.getElementById("dummy").innerHTML);
       };
       fileReader.readAsDataURL(imageFile);
@@ -146,7 +147,7 @@ const NewAvatar = (props) => {
       >
         Upload
       </button>
-      {/* <div width="300" height="auto" id="dummy"></div> */}
+      <div id="dummy"></div>
     </div>
   );
 };
