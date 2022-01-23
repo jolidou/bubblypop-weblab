@@ -60,6 +60,27 @@ const Profile = (props) => {
   // let facebookURL = "https://www.facebook.com/" + facebook.content;
   // let instagramURL = "https://www.instagram.com/" + instagram.content;
 
+
+  const[bubbleCount, setBubbleCount] = useState(null)
+  /* 
+    useEffect(() => {
+      get("/api/profile").then((user) => {
+        setBubbleCount(user.bubbleCount);
+      });
+    }, []);
+  */
+  const [contacts, setContacts] = useState([])
+
+    useEffect(() => {
+        get("/api/bubbles").then((contacts) => {
+            setContacts(contacts._id);
+            setBubbleCount(contacts.length)
+        })
+    }, []);
+
+/*   console.log(bubbleCount)
+  console.log(contacts) */
+
   return (
     <>
       <div>
@@ -69,8 +90,8 @@ const Profile = (props) => {
           avatarURL={avatar.avatarURL}
           content={status.content}
           display={props.display}
-          bubbleCount={props.count}
-          members={props.members} //TODO: link googleid of contacts-- add to api.js
+          bubbleCount={bubbleCount}
+          members={contacts}
 
           linkedInURL = {"https://www.linkedin.com/in/" + linkedIn.content}
           facebookURL = {"https://www.facebook.com/" + facebook.content}

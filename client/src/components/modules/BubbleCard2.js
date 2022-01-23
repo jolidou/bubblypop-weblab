@@ -5,8 +5,8 @@ import "./BubbleCard.css";
 import "../../utilities.css";
 
 const BubbleCard2 = (props) => {
-    const [avatar, setAvatar] = useState([]);
     const [status, setStatus] = useState("");
+/*     const [contacts, setContacts] = useState([]) */
     
     const updateStatus = (statusUpdate) => {
         setStatus(statusUpdate);
@@ -16,22 +16,31 @@ const BubbleCard2 = (props) => {
         get("/api/status", { user: props.user, content: props.content }).then((statusObj) => {
             setStatus(statusObj.content);
         });
-        get("/api/avatar", { avatarURL: props.avatarURL }).then((statusObj => {
-            setAvatar(statusObj.avatar);
-        }))
+/*         get("/api/bubbles").then((contacts) => {
+            setContacts(contacts);
+        }); */
     }, []);
 
     function hideDiv() {
         document.getElementById("bubble").style.display="none";
     }
 
+    const addContact = (newContact) => {
+        setBubbles([newContact].concat(props.contacts));
+      };
+
+    function popBubble() {
+        hideDiv();
+        addContact(props.creator_id);
+    }
+
     return (
         <div>
-            <div id = "bubble" className="bubbleContainer">
+            <div className="bubbleContainer">
                 <div className = "bubbleContent">
                     <p className = "bubbleUser"> {props.name} </p>
                     <div className = "bubbleStatus"> {props.content} </div>
-                    <button className = "bubbleButton" onClick= {hideDiv} > Pop!</button>
+                    <button className = "bubbleButton" onClick= {popBubble} > Pop!</button>
                 </div>
             </div>
         </div>

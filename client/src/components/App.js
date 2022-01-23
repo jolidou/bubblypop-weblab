@@ -45,14 +45,6 @@ const App = () => {
     post("/api/logout");
   };
 
-  const[bubbleCount, setBubbleCount] = useState(null)
-
-  useEffect(() => {
-    get("/api/profile").then((user) => {
-      setBubbleCount(user.bubbleCount);
-    });
-  }, []);
-
   if (userId) {
     return (
       <>
@@ -61,7 +53,7 @@ const App = () => {
           <Router>
             <Home path="/" />
             {userId && <Profile path="/profile/" user={userId} />}
-            {userId && <BubblePage path="/bubblepage/" user={userId} bubbleCount={bubbleCount} />}
+            {userId && <BubblePage path="/bubblepage/" user={userId}/>}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
           </Router>
