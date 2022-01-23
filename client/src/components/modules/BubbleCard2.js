@@ -6,7 +6,7 @@ import "../../utilities.css";
 
 const BubbleCard2 = (props) => {
     const [status, setStatus] = useState("");
-/*     const [contacts, setContacts] = useState([]) */
+    const [contacts, setContacts] = useState([]) 
     
     const updateStatus = (statusUpdate) => {
         setStatus(statusUpdate);
@@ -25,18 +25,14 @@ const BubbleCard2 = (props) => {
         document.getElementById("bubble").style.display="none";
     }
 
-    const addContact = (newContact) => {
-        setBubbles([newContact].concat(props.contacts));
-      };
-
     function popBubble() {
         hideDiv();
-        addContact(props.creator_id);
+        props.addContact(props.creator_id);
     }
 
     return (
         <div>
-            <div className="bubbleContainer">
+            <div id="bubble" className="bubbleContainer">
                 <div className = "bubbleContent">
                     <p className = "bubbleUser"> {props.name} </p>
                     <div className = "bubbleStatus"> {props.content} </div>

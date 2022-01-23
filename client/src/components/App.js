@@ -45,6 +45,20 @@ const App = () => {
     post("/api/logout");
   };
 
+  const [contacts, setContacts] = useState([])
+  const[bubbleCount, setBubbleCount] = useState(null)
+
+  useEffect(() => {
+      get("/api/bubbles").then((contacts) => {
+          setContacts(contacts._id);
+          setBubbleCount(contacts.length)
+      })
+  }, []);
+
+  const addContact = (newContact) => {
+    setContacts[newContact].concat(props.contacts);
+  };
+
   if (userId) {
     return (
       <>
@@ -52,8 +66,8 @@ const App = () => {
         <div className="App-container">
           <Router>
             <Home path="/" />
-            {userId && <Profile path="/profile/" user={userId} />}
-            {userId && <BubblePage path="/bubblepage/" user={userId}/>}
+            {userId && <Profile path="/profile/" user={userId} bubbleCount={bubbleCount}/>}
+            {userId && <BubblePage path="/bubblepage/" user={userId} contacts={contacts} bubbleCount={bubbleCount} addContact={addContact}/>}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
           </Router>
