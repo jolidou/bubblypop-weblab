@@ -3,7 +3,7 @@
 
 .bubblePageContainer {
   padding: var(--s) var(--m);
-  font-family: Roboto;
+  font-family: "Dongle";
   width: 100%;
   margin-top: 0;
 }
@@ -11,14 +11,13 @@
 .bubblePageTitleContainer {
   position: relative;
   text-align: center;
-  font-size: 200%;
-  font-style: italic;
+  font-size: 48px;
   font-weight: bolder;
   right: 2%;
   margin-bottom: var(--l);
   color: white;
   background-color: var(--sunflower);
-  padding: 10px;
+  padding: var(--m);
   border-radius: var(--l);
 }
 
