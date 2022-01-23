@@ -46,13 +46,19 @@ const App = () => {
     post("/api/logout");
   };
 
+  const [contacts, setContacts] = useState([])
   const[bubbleCount, setBubbleCount] = useState(null)
 
   useEffect(() => {
-    get("/api/profile").then((user) => {
-      setBubbleCount(user.bubbleCount);
-    });
+      get("/api/bubbles").then((contactObjs) => {
+          setContacts(contactObjs._id);                // contacts IS NOT A LIST OF OBJECTS, BUT RATHER IDs OF THE CONTACTS
+          setBubbleCount(contactObjs.length)
+      })
   }, []);
+
+  function addContact(newContactId) {
+    setContacts([newContactId].concat(contacts));
+  };
 
   if (userId) {
     return (
@@ -64,8 +70,8 @@ const App = () => {
         <div className="App-container">
           <Router>
             <Home path="/" />
-            {userId && <Profile path="/profile/" user={userId} />}
-            {userId && <BubblePage path="/bubblepage/" user={userId} bubbleCount={bubbleCount} />}
+            {userId && <Profile path="/profile/" user={userId} bubbleCount={bubbleCount}/>}
+            {userId && <BubblePage path="/bubblepage/" user={userId} contacts={contacts} bubbleCount={bubbleCount} addContact={addContact}/>}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
           </Router>

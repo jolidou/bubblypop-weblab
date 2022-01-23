@@ -35,6 +35,17 @@ const Edit = (props) => {
     <>
     <div className = "columnContainer">
       <div className = "columnItem box">
+            <h1 className = "boxHeader"> avatar </h1>
+            {/* {props.user && (
+              <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} name = {user.name} />
+            )} */}
+            &nbsp;
+            {/* {props.user && (
+              <NewAvatar addNewAvatar={addAvatar} defaultText="Your avatar URL" user={props.user} />
+            )} */}
+            {props.user && <NewAvatar addNewAvatar={addAvatar} user={props.user} />}
+      </div>
+      <div className = "columnItem box">
           <h1 className = "boxHeader"> socials </h1>
           {props.user && (
             <SocialCard
@@ -64,16 +75,7 @@ const Edit = (props) => {
             />
           )}
       </div>
-      <div className = "columnItem box">
-            <h1 className = "boxHeader"> account info </h1>
-            {props.user && (
-              <NewStatus addNewStatus={addStatus} defaultText="Your status" user={props.user} name = {user.name} />
-            )}
-            &nbsp;
-            {props.user && (
-              <NewAvatar addNewAvatar={addAvatar} defaultText="Your avatar URL" user={props.user} />
-            )}
-      </div>
+      
     </div>
       {/* <div className="wrapper">
           <div className="columnItem">

@@ -88,7 +88,20 @@ const NewStatus = (props) => {
   return <NewPostInput defaultText={props.defaultText} onSubmit={addStatus} />;
 };
 
+// const NewAvatar = (props) => {
+//   const addAvatar = (value) => {
+//     const body = { user: props.user, content: value };
+//     post("/api/avatar", body).then((avatar) => {
+//       props.addNewAvatar(avatar);
+//     });
+//   };
+
+//   return <NewPostInput defaultText={props.defaultText} onSubmit={addAvatar} />;
+// };
+
 const NewAvatar = (props) => {
+  const [value, setValue] = useState("");
+
   const addAvatar = (value) => {
     const body = { user: props.user, content: value };
     post("/api/avatar", body).then((avatar) => {
@@ -96,40 +109,47 @@ const NewAvatar = (props) => {
     });
   };
 
-  return <NewPostInput defaultText={props.defaultText} onSubmit={addAvatar} />;
+  // called when the user hits "Submit" for a new post
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addAvatar(value);
+    setValue("");
+  };
+
+  const encode = () => {
+    var selectedfile = document.getElementById("myinput").files;
+    if (selectedfile.length > 0) {
+      var imageFile = selectedfile[0];
+      var fileReader = new FileReader();
+      fileReader.onload = function (fileLoadedEvent) {
+        var srcData = fileLoadedEvent.target.result;
+        console.log(srcData);
+        setValue(srcData);
+        var newImage = document.createElement("img");
+        newImage.src = srcData;
+        newImage.style.width = "300px";
+        newImage.style.height = "auto";
+        document.getElementById("dummy").innerHTML = newImage.outerHTML;
+        // console.log(document.getElementById("dummy").innerHTML);
+      };
+      fileReader.readAsDataURL(imageFile);
+    }
+  };
+
+  return (
+    <div>
+      <input id="myinput" type="file" onChange={encode} />
+      <button
+        type="submit"
+        className="NewPostInput-button u-pointer"
+        value="Submit"
+        onClick={handleSubmit}
+      >
+        Upload
+      </button>
+      <div id="dummy"></div>
+    </div>
+  );
 };
-
-/**
- * New Story is a New Post component for comments
- *
- * Proptypes
- * @param {string} defaultText is the placeholder text
- */
-// const NewStory = (props) => {
-//   const addStory = (value) => {
-//     const body = { content: value };
-//     post("/api/story", body).then((story) => {
-//       // display this story on the screen
-//       props.addNewStory(story);
-//     });
-//   };
-
-//   return <NewPostInput defaultText="New Story" onSubmit={addStory} />;
-// };
-
-// /**
-//  * New Message is a New Message component for messages
-//  *
-//  * Proptypes
-//  * @param {UserObject} recipient is the intended recipient
-//  */
-// const NewMessage = (props) => {
-//   const sendMessage = (value) => {
-//     const body = { recipient: props.recipient, content: value };
-//     post("/api/message", body);
-//   };
-
-//   return <NewPostInput defaultText="New Message" onSubmit={sendMessage} />;
-// }
 
 export { NewSocial, NewBubble, NewStatus, NewAvatar };
