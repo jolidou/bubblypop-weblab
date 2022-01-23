@@ -7,7 +7,7 @@ const Avatar = (props) => {
     return(
         <div>
             <Link to={`/profile/${props.userId}`}>
-                <img src={props.avatarURL} class="rounded"/>
+                <img src={props.avatarURL} className="rounded"/>
             </Link>
         </div>
     );
