@@ -51,7 +51,7 @@ const Profile = (props) => {
   }, []);
 
   useEffect(() => {
-    get(`/api/socialMedia`, { user: props.user, type: "phoneNumber" }).then((phoneNumberObj) => {
+    get(`/api/socialMedia`, { user: props.user, type: "phone" }).then((phoneNumberObj) => {
       setPhoneNumber(phoneNumberObj);
     });
   }, []);

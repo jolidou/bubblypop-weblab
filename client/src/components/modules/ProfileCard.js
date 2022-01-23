@@ -26,6 +26,20 @@ function ProfileCard(props) {
         setStatus(statusUpdate);
     };
 
+    const popupFunction = () => {
+        var popup = document.getElementById("phonePopup");
+        popup.classList.toggle("show");
+    }
+
+    function togglePopup() {
+        if (document.getElementById("phonePopup").style.display === "block") {
+            document.getElementById("phonePopup").style.display = "none";
+        } else {
+            document.getElementById("phonePopup").style.display="block";
+        }
+        
+    }
+
     // TEST
 /*     let element = ["hello"];
 
@@ -52,7 +66,8 @@ function ProfileCard(props) {
                     <a href={props.linkedInURL} target="_blank" className="fa fa-linkedin"></a>
                     <a href={props.facebookURL} target="_blank" className="fa fa-facebook"></a>
                     <a href={props.instagramURL} target="_blank" className="fa fa-instagram"></a>
-                    <a title={props.phoneNumber} className="fa fa-phone"></a>
+                    <a title={props.phoneNumber} className="fa fa-phone" onClick= {togglePopup}></a>
+                    <span className = "popup" id = "phonePopup"> {props.phoneNumber} </span>
                 </div>
             </div>
             <div className="columnItem rowContainer">

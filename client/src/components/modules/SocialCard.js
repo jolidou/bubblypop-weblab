@@ -19,7 +19,7 @@ const SocialCard  = (props) => {
           });
     })
 
-    const currText = ((text === "") ? "N/A: Please input your information!" : text);
+    const currText = ((text === "") ? ((props.type !== 'phone') ?  `Your ${props.type} username:` : `Your phone number:`) : text);
 
     return (
         <div className = "socialCard">

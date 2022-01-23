@@ -9,10 +9,11 @@ import "./NavBar.css";
 const GOOGLE_CLIENT_ID = "810319868270-g5a4qu2k272mtcdu5b374h2qo1lrlm7p.apps.googleusercontent.com";
 
 const NavBar = ({ userId, handleLogin, handleLogout }) => {
+
   return (
     <nav className="NavBar-container">
-      <div className="NavBar-title u-inlineBlock">BUBBLYPOP</div>
-      <div className="NavBar-linkContainer u-inlineBlock">
+      <div className="NavBar-title u-inlineBlock">bubblypop</div>
+      <div className="NavBar-linkContainer u-inlineBlock" >
         <Link to="/" className="NavBar-link">
           home
         </Link>

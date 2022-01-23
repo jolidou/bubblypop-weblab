@@ -70,7 +70,7 @@ const Edit = (props) => {
           &nbsp;
           {props.user && (
             <SocialCard
-              type="phoneNumber"
+              type="phone"
               user={props.user}
             />
           )}

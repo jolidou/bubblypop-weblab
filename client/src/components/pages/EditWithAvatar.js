@@ -59,7 +59,7 @@ const Edit = (props) => {
           &nbsp;
           {props.user && <SocialCard type="instagram" user={props.user} />}
           &nbsp;
-          {props.user && <SocialCard type="phoneNumber" user={props.user} />}
+          {props.user && <SocialCard type="phone" user={props.user} />}
         </div>
         <div className="columnItem box">
           <h1 className="boxHeader"> account info </h1>
