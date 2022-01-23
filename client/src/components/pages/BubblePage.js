@@ -27,6 +27,8 @@ const BubblePage = (props) => {
     setBubbles([bubbleObj].concat(bubbles));
   };
 
+  console.log(props.contacts)
+
   let bubbleList = null;
   const hasBubbles = bubbles.length !== 0;
   if (hasBubbles) {
@@ -42,6 +44,7 @@ const BubblePage = (props) => {
               userId={props.user} //refers to the ID of the current user
               content={bubbleObj.content}
               contacts={props.contacts}
+              addContact={props.addContact}
           />
         }
       </div>

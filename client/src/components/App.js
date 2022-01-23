@@ -49,14 +49,14 @@ const App = () => {
   const[bubbleCount, setBubbleCount] = useState(null)
 
   useEffect(() => {
-      get("/api/bubbles").then((contacts) => {
-          setContacts(contacts._id);
-          setBubbleCount(contacts.length)
+      get("/api/bubbles").then((contactObjs) => {
+          setContacts(contactObjs._id);                // contacts IS NOT A LIST OF OBJECTS, BUT RATHER IDs OF THE CONTACTS
+          setBubbleCount(contactObjs.length)
       })
   }, []);
 
-  const addContact = (newContact) => {
-    setContacts[newContact].concat(props.contacts);
+  function addContact(newContactId) {
+    setContacts([newContactId].concat(contacts));
   };
 
   if (userId) {
