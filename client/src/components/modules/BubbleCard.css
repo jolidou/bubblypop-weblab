@@ -3,8 +3,8 @@
 .bubbleContainer {
   border-radius: 50%;
   overflow: hidden;
-  width: 30vmin;
-  height: 30vmin;
+  width: 20vmin;
+  height: 20vmin;
   padding: 5vmin;
   /* background-color: var(--dark-turq); */
 }
