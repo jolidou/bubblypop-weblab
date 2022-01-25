@@ -62,9 +62,9 @@
   0% {
     transform: translate(0%, 0%);
   }
-  50% {
-    transform: translate(5px, 5px);
-  }
+  /* 50% {
+    transform: translate(1px, 1px);
+  } */
   100% {
     transform: translate(0%, 0%);
   }
@@ -74,9 +74,9 @@
   0% {
     transform: translate(0%, 0%);
   }
-  50% {
-    transform: translate(10px, -10px);
-  }
+  /* 50% {
+    transform: translate(1px, -1px);
+  } */
   100% {
     transform: translate(0%, 0%);
   }
@@ -86,21 +86,21 @@
   0% {
     transform: translate(0%, 0%);
   }
-  50% {
-    transform: translate(5px, 5px);
-  }
+  /* 50% {
+    transform: translate(1px, 1px);
+  } */
   100% {
     transform: translate(0%, 0%);
   }
 }
 
-@keyframes floating4 {
+@keyframes bubfloat4 {
   0% {
     transform: translate(0%, 0%);
   }
-  50% {
-    transform: translate(-10px, 10px);
-  }
+  /* 50% {
+    transform: translate(-1px, 1px);
+  } */
   100% {
     transform: translate(0%, 0%);
   }

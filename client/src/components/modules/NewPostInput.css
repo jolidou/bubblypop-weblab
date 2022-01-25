@@ -2,7 +2,7 @@
 .NewPostInput-button {
   font-family: "Dongle";
   font-weight: 800px;
-  font-size: 14px;
+  font-size: 24px;
   padding: var(--s) var(--m);
 }
 
@@ -30,4 +30,15 @@
 .NewPostInput-button:hover {
   color: var(--dark-lilac);
   background-color: var(--sunflower);
+}
+
+.imageInput {
+  color: white;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+  font-size: var(--m);
+  font-family: "Dongle", sans-serif;
 }

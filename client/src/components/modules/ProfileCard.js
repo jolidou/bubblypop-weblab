@@ -9,6 +9,7 @@ import Contact from "./Contact.js";
 
 import "./ProfileCard.css";
 import "../../utilities.css";
+import "./Status.css";
 
 
 function ProfileCard(props) {
@@ -53,11 +54,12 @@ function ProfileCard(props) {
         <div className="columnContainer">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
             <div className="columnItem rowContainer">
-                <Avatar
-                    userId={props.userId}
-                    avatarURL={props.avatarURL} 
-                    className="rowItem"/>
-                <div><h1>{props.name}</h1></div>
+                <br></br>
+                    <Avatar
+                        userId={props.userId}
+                        avatarURL={props.avatarURL} 
+                        className="rowItem"/>
+                <h1 className = "nameText">{props.name}</h1>
                 <Status
                     content={props.content}
                     className="rowItem"/>
@@ -71,17 +73,18 @@ function ProfileCard(props) {
                 </div>
             </div>
             <div className="columnItem rowContainer">
-                <div><h1>Bubble Counter:</h1></div>
-                <div>
-                    {props.bubbleCount}
+                <div><h1 className = "sectionTitle">Bubble Counter:</h1></div>
+                <div className = "bubbleCounterContainer">
+                    <div className = "bubbleCounterText">
+                        {props.bubbleCount}
+                    </div>
                 </div>
-                <br></br>
                 <div>
-                    <h1>Contacts:</h1> 
+                    <h1 className = "sectionTitle">Contacts:</h1> 
                     <Contact
                     userId={props.userId}
-                    members={props.members}
-                    className="rowItem"/>
+                    members={props.members}/>
+                    {/* className="rowItem"/> */}
                 </div>
             </div>
         </div>

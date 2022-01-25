@@ -7,6 +7,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: 8% 0;
 }
 
 .homeTitle {
@@ -14,7 +15,6 @@
   text-align: center;
   font-size: 64px;
   font-weight: bolder;
-  right: 2%;
   margin-top: 20vh;
   margin-bottom: var(--l);
   color: white;
@@ -23,17 +23,21 @@
   border-radius: var(--l);
 }
 
+.homeContainer {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+}
+
 .homeTextContainer {
   position: relative;
-  right: 10px;
-  background-color: var(--mint-cream);
-  padding: var(--l);
+  padding: 0 auto;
 }
 .homeText {
   font-family: "Dongle";
   font-style: italic;
   font-weight: 200;
-  color: var(--deepest-lilac);
+  color: var(--mint-cream);
   text-align: center;
   font-size: 24px;
 }

@@ -1,0 +1,16 @@
+@import "../../utilities.css";
+
+.bubbleCounterContainer {
+  position: relative;
+  width: 30vmin;
+  height: 30vmin;
+  margin: 0 auto;
+  background-color: var(--mint-cream);
+  padding: var(--m);
+}
+
+.bubbleCounterText {
+  color: var(--deepest-lilac);
+  font-family: "Dongle", sans-serif;
+  font-size: 32px;
+}

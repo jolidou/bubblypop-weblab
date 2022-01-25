@@ -139,6 +139,7 @@ const NewAvatar = (props) => {
   return (
     <div>
       <input id="myinput" type="file" onChange={encode} />
+      <br></br>
       <button
         type="submit"
         className="NewPostInput-button u-pointer"
