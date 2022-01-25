@@ -11,6 +11,7 @@ import ContactCard from "./ContactCard.js";
 import "./ProfileCard.css";
 import "../../utilities.css";
 import "./Status.css";
+import Dropdown from "react-bootstrap/Dropdown";
 
 
 function ProfileCard(props) {
@@ -62,18 +63,28 @@ function ProfileCard(props) {
 
     let contactsList = null;
     const hasContacts = contacts.length !== 0;
+    // if (hasContacts) {
+    //     contactsList = contacts.map((contactObj) => (
+    //         <ContactCard
+    //             key={`ContactCard_${contactObj._id}`}
+    //             _id={contactObj._id}
+    //             recipient={contactObj.recipient}
+    //         />
+    //     ));
+    // } else {
+    //     contactsList = <div>No contacts!</div>;
+    // }
+
     if (hasContacts) {
         contactsList = contacts.map((contactObj) => (
-            <ContactCard
-                key={`ContactCard_${contactObj._id}`}
-                _id={contactObj._id}
-                recipient={contactObj.recipient}
-            />
+            <Dropdown.Item key = {`Contact_${contactObj._id}`}> 
+                {contactObj._id}
+            </Dropdown.Item>
         ));
-    } else {
-        contactsList = <div>No contacts!</div>;
-    }
-
+        } else {
+            contactsList = <Dropdown.Item> No contacts yet :( </Dropdown.Item>
+        }
+        
     return (
         
         <div className="columnContainer">
@@ -106,7 +117,14 @@ function ProfileCard(props) {
                 </div>
                 <div>
                     <h1 className = "sectionTitle">Contacts:</h1> 
-                    {contactsList}
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success">
+                            All Contacts
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                {contactsList}
+                            </Dropdown.Menu>
+                    </Dropdown>
                 </div>
             </div>
         </div>

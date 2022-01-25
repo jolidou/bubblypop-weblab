@@ -1,9 +1,11 @@
 import { get } from "../../utilities.js";
 import React, { useState, useEffect, useRef } from "react";
 import ProfileCard from "../modules/ProfileCard.js";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import "../../utilities.css";
 import "./Profile.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Profile = (props) => {
   const [user, setUser] = useState("");
