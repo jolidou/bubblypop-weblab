@@ -15,31 +15,33 @@ import "./BubblePage.css";
 
 const BubblePage = (props) => {
   const [bubbles, setBubbles] = useState([]);
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     get("/api/statuses").then((bubblesExisting) => {
       setBubbles(bubblesExisting);
-    });
+    })
+
   }, []);
 
 
-  const [contactIds, setContactIds] = useState([]);
-  const hasContacts = props.contacts.length !== 0;
-  if (hasContacts) {
-    setContactIds(props.contacts.map((contact) => {
-      contact.recipient
-    }))
-  } 
+  // const [contactIds, setContactIds] = useState([]);
+  // const hasContacts = contacts.length !== 0;
+  // if (hasContacts) {
+  //   setContactIds(contacts.map((contactObj) => {
+  //     contactObj.recipient
+  //   }))
+  // } 
 
-  const addContact = (newContactId) => {
-    setContactIds([newContactId].concat(contactIds));
-  }; 
+  // const addContact = (newContactId) => {
+  //   setContactIds([newContactId].concat(contactIds));
+  // }; 
 
   const addNewBubble = (bubbleObj) => {
     setBubbles([bubbleObj].concat(bubbles));
   };
 
-  console.log(props.contacts)
+  // console.log(contacts);
 
   let bubbleList = null;
   const hasBubbles = bubbles.length !== 0;
@@ -55,8 +57,8 @@ const BubblePage = (props) => {
               name = {bubbleObj.name}
               userId={props.user} //refers to the ID of the current user
               content={bubbleObj.content}
-              contacts={props.contacts}
-              addContact={addContact}
+              // contacts={contacts}
+              // addContact={addContact}
           />
         }
       </div>

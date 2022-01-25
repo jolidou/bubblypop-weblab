@@ -13,6 +13,8 @@ const Profile = (props) => {
   const [facebook, setFacebook] = useState("");
   const [instagram, setInstagram] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [contacts, setContacts] = useState([]);
+  const [bubbleCount, setBubbleCount] = useState(0);
 
   useEffect(() => {
     get(`/api/user`, { userid: props.user }).then((userObj) => {
@@ -56,6 +58,13 @@ const Profile = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+      get(`/api/contact`, { user: props.user}).then((contactObjs) => {
+        setContacts(contactObjs);
+        setBubbleCount(contactObjs.length);
+      });
+  }, []);
+
   // let linkedInURL = "https://www.linkedin.com/in/" + linkedIn.content;
   // let facebookURL = "https://www.facebook.com/" + facebook.content;
   // let instagramURL = "https://www.instagram.com/" + instagram.content;
@@ -70,8 +79,8 @@ const Profile = (props) => {
           avatarURL={avatar.avatarURL}
           content={status.content}
           display={props.display}
-          bubbleCount={props.bubbleCount}
-          members={props.contacts}
+          bubbleCount={bubbleCount}
+          members={contacts}
 
           linkedInURL = {"https://www.linkedin.com/in/" + linkedIn.content}
           facebookURL = {"https://www.facebook.com/" + facebook.content}

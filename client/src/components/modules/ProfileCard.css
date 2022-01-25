@@ -78,7 +78,11 @@ body {
 
 .bubbleCounterText {
   position: relative;
-  top: 20%;
+  text-align: center;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   color: var(--white);
   font-family: "Dongle", sans-serif;
   font-size: 64px;
