@@ -64,7 +64,8 @@ const Profile = (props) => {
     <>
       <div>
         <ProfileCard
-          userId={user._id}
+          // userId={user._id}
+          userId = {props.user}
           name={user.name}
           avatarURL={avatar.avatarURL}
           content={status.content}

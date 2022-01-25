@@ -5,7 +5,8 @@ import { get } from "../../utilities";
 import SocialMediaBlock from "./SocialMediaBluck.js"; */
 import Status from "./Status.js";
 import Avatar from "./Avatar.js";
-import Contact from "./Contact.js";
+// import Contact from "./Contact.js";
+import ContactCard from "./ContactCard.js";
 
 import "./ProfileCard.css";
 import "../../utilities.css";
@@ -13,13 +14,22 @@ import "./Status.css";
 
 
 function ProfileCard(props) {
+    const [testvar, setTestvar] = useState([]);
+    
     const [avatar, setAvatar] = useState([]);
     const [status, setStatus] = useState("");
+    const [contacts, setContacts] = useState([]);
 
     useEffect(() => {
         get("/api/profile", { parent: props.avatarURL, parent: props.status }).then((avatar, status) => {
             setAvatar(avatar);
             setStatus(status);
+        });
+    }, []);
+
+    useEffect(() => {
+        get("/api/contact", {user: props.userId }).then((contactObjs) => {
+            setContacts(contactObjs);
         });
     }, []);
 
@@ -48,6 +58,21 @@ function ProfileCard(props) {
  */
     console.log(props.bubbleCount);
     console.log(props.members);
+
+
+    let contactsList = null;
+    const hasContacts = contacts.length !== 0;
+    if (hasContacts) {
+        contactsList = contacts.map((contactObj) => (
+            <ContactCard
+                key={`ContactCard_${contactObj._id}`}
+                _id={contactObj._id}
+                recipient={contactObj.recipient}
+            />
+        ));
+    } else {
+        contactsList = <div>No contacts!</div>;
+    }
 
     return (
         
@@ -81,10 +106,7 @@ function ProfileCard(props) {
                 </div>
                 <div>
                     <h1 className = "sectionTitle">Contacts:</h1> 
-                    <Contact
-                    userId={props.userId}
-                    members={props.members}/>
-                    {/* className="rowItem"/> */}
+                    {contactsList}
                 </div>
             </div>
         </div>
