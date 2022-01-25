@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 import "./BubbleCard.css";
 import "../../utilities.css";
@@ -13,7 +13,7 @@ const BubbleCard2 = (props) => {
     };
 
     useEffect(() => {
-        get("/api/status", { user: props.user, content: props.content }).then((statusObj) => {
+        get("/api/status", { user: props.userId }).then((statusObj) => {
             setStatus(statusObj.content);
         });
 /*         get("/api/bubbles").then((contacts) => {
@@ -28,7 +28,10 @@ const BubbleCard2 = (props) => {
 
     function popBubble() {
         hideDiv();
-        props.addContact(props.creator_id);
+        const body = { recipient : props.creator_id };
+        post("/api/bubbles", body).then((contact) => {
+            props.addContact(props.creator_id);
+          });
     }
 
     console.log(props.contacts);
