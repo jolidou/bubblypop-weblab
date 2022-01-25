@@ -238,6 +238,15 @@ router.post("/contact", auth.ensureLoggedIn, (req, res) => {
       newContact.save().then((contact) => res.send(contact));
     }
   });
+  Contact.findOne({ user: req.body.recipient, recipient: req.body.user }).then((contact) => {
+    if (contact == null) {
+      const newContact = new Contact({
+        user: req.body.recipient,
+        recipient: req.body.user,
+      });
+      newContact.save().then((contact) => res.send(contact));
+    }
+  });
 });
 
 
