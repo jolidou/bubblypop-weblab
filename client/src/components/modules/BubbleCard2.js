@@ -20,9 +20,10 @@ const BubbleCard2 = (props) => {
             setContacts(contacts);
         }); */
     }, []);
+    const [isHidden, setIsHidden] = useState(false);
 
     function hideDiv() {
-        document.getElementById("bubble").style.display="none";
+        setIsHidden(true);
     }
 
     function popBubble() {
@@ -34,7 +35,7 @@ const BubbleCard2 = (props) => {
 
     return (
         <div>
-            <div id="bubble" className="bubbleContainer">
+            <div className="bubbleContainer" style={{display: isHidden ? "none" : "block"}}>
                 <div className = "bubbleContent">
                     <p className = "bubbleUser"> {props.name} </p>
                     <div className = "bubbleStatus"> {props.content} </div>
