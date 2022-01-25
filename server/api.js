@@ -225,22 +225,17 @@ router.post("/avatar", auth.ensureLoggedIn, (req, res) => {
 
 //CONTACT METHODS:
 router.get("/contact", auth.ensureLoggedIn, (req, res) => {
-  Contact.find({ user: req.body.user }).then((contactMembers) => res.send(contactMembers));
+  Contact.find({ user: req.query.user }).then((contactMembers) => res.send(contactMembers));
 });
 
 router.post("/contact", auth.ensureLoggedIn, (req, res) => {
-  Contact.find({ user: req.body.user, type: req.body.type }).then((contacts) => {
-    if (contacts != null) {
-      //contact post body must have members in a LIST
-      contacts.members.concat([req.body.content]);
-      contacts.save().then((contacts) => res.send(contacts));
-    } else {
+  Contact.findOne({ user: req.body.user, recipient: req.body.recipient }).then((contact) => {
+    if (contact == null) {
       const newContact = new Contact({
         user: req.body.user,
-        type: req.body.type,
-        members: req.body.members,
+        recipient: req.body.recipient,
       });
-      newContact.save().then((contacts) => res.send(contacts));
+      newContact.save().then((contact) => res.send(contact));
     }
   });
 });
