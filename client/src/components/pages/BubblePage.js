@@ -23,6 +23,18 @@ const BubblePage = (props) => {
   }, []);
 
 
+  const [contactIds, setContactIds] = useState([]);
+  const hasContacts = props.contacts.length !== 0;
+  if (hasContacts) {
+    setContactIds(props.contacts.map((contact) => {
+      contact.recipient
+    }))
+  } 
+
+  const addContact = (newContactId) => {
+    setContactIds([newContactId].concat(contactIds));
+  }; 
+
   const addNewBubble = (bubbleObj) => {
     setBubbles([bubbleObj].concat(bubbles));
   };
@@ -44,7 +56,7 @@ const BubblePage = (props) => {
               userId={props.user} //refers to the ID of the current user
               content={bubbleObj.content}
               contacts={props.contacts}
-              addContact={props.addContact}
+              addContact={addContact}
           />
         }
       </div>

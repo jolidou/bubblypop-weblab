@@ -47,24 +47,19 @@ const App = () => {
     post("/api/logout");
   };
 
-  const [contacts, setContacts] = useState([])
   const[bubbleCount, setBubbleCount] = useState(null)
 
   useEffect(() => {
-    get(`/api/contact`, { user: props.userId }).then((contactObjs) => {
+    get(`/api/contact`, { user: userId }).then((contactObjs) => {
       setContacts(contactObjs);
+      setBubbleCount(contactObjs.length)
     });
-
+/* 
     get("/api/contact").then((contactObjs) => {
         setContacts(contactObjs.user);                // contacts IS NOT A LIST OF OBJECTS, BUT RATHER IDs OF THE CONTACTS
-        setBubbleCount(contactObjs.length)
-    })
-  }, []);
-
-  const addContact = (newContactId) => {
-    post("/api/contacts").then()
-    setContacts([newContactId].concat(contacts));
-  };
+        
+    }) */
+  }, []); 
 
   console.log(contacts)
 
@@ -78,8 +73,8 @@ const App = () => {
         <div className="App-container">
           <Router>
             <Home path="/" />
-            {userId && <Profile path="/profile/" user={userId} bubbleCount={bubbleCount}/>}
-            {userId && <BubblePage path="/bubblepage/" user={userId} contacts={contacts} bubbleCount={bubbleCount} addContact={addContact}/>}
+            {userId && <Profile path="/profile/" user={userId} bubbleCount={bubbleCount} contacts={contacts}/>}
+            {userId && <BubblePage path="/bubblepage/" user={userId} contacts={contacts} bubbleCount={bubbleCount}/>}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
           </Router>
