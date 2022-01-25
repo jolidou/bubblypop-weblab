@@ -68,9 +68,9 @@ const NewSocial = (props) => {
 
 const NewBubble = (props) => {
   const updateStatus = (content) => {
-    const body = { content: content };
+    const body = { user: props.user, name: props.name, content: content };
     post("/api/status", body).then((status) => {
-      props.addNewBubble(bubble);
+      props.addNewBubble(status);
     });
   };
 

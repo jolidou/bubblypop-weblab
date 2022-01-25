@@ -72,7 +72,7 @@ const BubblePage = (props) => {
         <div className = "bubblePageTitleContainer">
           pop bubbles to make new bubs! :)
         </div>
-        {<NewBubble addNewBubble={addNewBubble} />}
+        {<NewBubble addNewBubble={addNewBubble} name = {props.name} />}
         <div className = "bubbleListContainer"> {bubbleList} </div>
       </div>
     </>

@@ -77,7 +77,7 @@ const Profile = (props) => {
           userId = {props.user}
           name={user.name}
           avatarURL={avatar.avatarURL}
-          content={status.content}
+          status={status.content}
           display={props.display}
           bubbleCount={bubbleCount}
           members={contacts}
