@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const ContactSchema = new mongoose.Schema({
   user: String,
-  type: String, 
-  members: [String] // list of Google IDs of contacts of this type
+  recipient: String
 });
 
 // compile model from schema
