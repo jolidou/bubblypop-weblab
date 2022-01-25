@@ -41,32 +41,33 @@
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
+  border-radius: 8%;
 }
 
 .fa-linkedin {
   background: #007bb5;
   color: white;
   width: 30px;
-  height: auto
+  height: auto;
 }
 
 .fa-facebook {
-  background: #3B5998;
+  background: #3b5998;
   color: white;
   width: 30px;
-  height: auto
+  height: auto;
 }
 
 .fa-instagram {
   background: #125688;
   color: white;
   width: 30px;
-  height: auto
+  height: auto;
 }
 
 .fa-phone {
   background: #800000;
   color: white;
   width: 30px;
-  height: auto
+  height: auto;
 }
