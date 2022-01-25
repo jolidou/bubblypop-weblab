@@ -22,6 +22,7 @@ import "./App.css";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [user, setUser] = useState("");
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const App = () => {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
+      setUser(user._id)
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -58,6 +60,7 @@ const App = () => {
           <Router>
             <Home path="/" />
             {userId && <Profile path="/profile/" user={userId} />}
+            {userId && <Profile path="/other-profile/:user" />}
             {userId && <BubblePage path="/bubblepage/" user={userId} />}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
