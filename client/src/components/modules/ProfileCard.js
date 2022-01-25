@@ -97,7 +97,7 @@ function ProfileCard(props) {
                         className="rowItem"/>
                 <h1 className = "nameText">{props.name}</h1>
                 <Status
-                    content={props.content}
+                    content={props.status}
                     className="rowItem"/>
                 &nbsp;
                 <div>

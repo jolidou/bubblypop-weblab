@@ -12,14 +12,14 @@ const BubbleCard2 = (props) => {
         setStatus(statusUpdate);
     };
 
-    useEffect(() => {
-        get("/api/status", { user: props.userId }).then((statusObj) => {
-            setStatus(statusObj.content);
-        });
-/*         get("/api/bubbles").then((contacts) => {
-            setContacts(contacts);
-        }); */
-    }, []);
+//     useEffect(() => {
+//         get("/api/status", { user: props.userId }).then((statusObj) => {
+//             setStatus(statusObj.content);
+//         });
+// /*         get("/api/bubbles").then((contacts) => {
+//             setContacts(contacts);
+//         }); */
+//     }, []);
     const [isHidden, setIsHidden] = useState(false);
 
     function hideDiv() {
