@@ -22,6 +22,7 @@ import "./App.css";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -50,13 +51,18 @@ const App = () => {
   const[bubbleCount, setBubbleCount] = useState(null)
 
   useEffect(() => {
-    get("/api/bubbles").then((contactObjs) => {
+    get(`/api/contact`, { user: props.userId }).then((contactObjs) => {
+      setContacts(contactObjs);
+    });
+
+    get("/api/contact").then((contactObjs) => {
         setContacts(contactObjs.user);                // contacts IS NOT A LIST OF OBJECTS, BUT RATHER IDs OF THE CONTACTS
         setBubbleCount(contactObjs.length)
     })
   }, []);
 
   const addContact = (newContactId) => {
+    post("/api/contacts").then()
     setContacts([newContactId].concat(contacts));
   };
 
