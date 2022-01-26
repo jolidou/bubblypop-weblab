@@ -105,7 +105,9 @@ function ProfileCard(props) {
                     <a href={props.facebookURL} target="_blank" className="fa fa-facebook"></a>
                     <a href={props.instagramURL} target="_blank" className="fa fa-instagram"></a>
                     <a title={props.phoneNumber} className="fa fa-phone" onClick= {togglePopup}></a>
-                    <span className = "popup" id = "phonePopup"> {props.phoneNumber} </span>
+                    <span className = "popup" id = "phonePopup"> 
+                        {props.phoneNumber}
+                    </span>
                 </div>
             </div>
             <div className="columnItem rowContainer">

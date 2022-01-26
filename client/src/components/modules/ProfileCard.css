@@ -94,6 +94,10 @@ body {
   position: relative;
   display: none;
   cursor: pointer;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-family: "Dongle", sans-serif;
 }
 
 /* The actual popup (appears on top) */
