@@ -231,22 +231,25 @@ router.get("/contact", auth.ensureLoggedIn, (req, res) => {
 router.post("/contact", auth.ensureLoggedIn, (req, res) => {
   Contact.findOne({ user: req.body.user, recipient: req.body.recipient }).then((contact) => {
     if (contact == null) {
+      console.log("HELLO");
       const newContact = new Contact({
         user: req.body.user,
         recipient: req.body.recipient,
       });
       newContact.save().then((contact) => res.send(contact));
+    } else {
+      console.log("BYE");
     }
   });
-  Contact.findOne({ user: req.body.recipient, recipient: req.body.user }).then((contact) => {
-    if (contact == null) {
-      const newContact = new Contact({
-        user: req.body.recipient,
-        recipient: req.body.user,
-      });
-      newContact.save().then((contact) => res.send(contact));
-    }
-  });
+  // Contact.findOne({ user: req.body.recipient, recipient: req.body.user }).then((contact) => {
+  //   if (contact == null) {
+  //     const newContact = new Contact({
+  //       user: req.body.recipient,
+  //       recipient: req.body.user,
+  //     });
+  //     newContact.save().then((contact) => res.send(contact));
+  //   }
+  // });
 });
 
 
