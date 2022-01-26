@@ -47,7 +47,7 @@ const BubblePage = (props) => {
   const hasBubbles = bubbles.length !== 0;
   if (hasBubbles) {
     bubbleList = bubbles.map((bubbleObj) => (
-      <div className = "floating" key = {`BubbleContainer_${bubbleObj._id}`}>
+      <div className = "floating u-divCenter" key = {`BubbleContainer_${bubbleObj._id}`}>
         {bubbleObj.user !== props.user
           /* && !props.contacts.includes(bubbleObj.user) */
           && <BubbleCard2

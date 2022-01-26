@@ -36,6 +36,7 @@
 .floating {
   /* animation-name: floating; */
   animation-duration: 20s;
+  animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   /* margin-left: 30px;
