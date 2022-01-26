@@ -64,7 +64,7 @@ const BubblePage = (props) => {
       </div>
     ));
   } else {
-    bubbleList = <div>No bubbles :(</div>;
+    bubbleList = <div className = "noBubbles">No bubbles :(</div>;
   }
   return (
     <>
