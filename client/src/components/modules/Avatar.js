@@ -6,7 +6,7 @@ import "./Avatar.css";
 const Avatar = (props) => {
     return(
         <div>
-            <Link to={`/profile/${props.userId}`}>
+            <Link to={`/profile/`}>
                 <img src={props.avatarURL} className="rounded"/>
             </Link>
         </div>
