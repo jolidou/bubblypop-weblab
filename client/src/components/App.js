@@ -40,6 +40,7 @@ const App = () => {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
+      setUser(user._id);
       setName(user.name);
       post("/api/initsocket", { socketid: socket.id });
     });
@@ -62,6 +63,7 @@ const App = () => {
           <Router>
             <Home path="/" />
             {userId && <Profile path="/profile/" user={userId} />}
+            {userId && <Profile path="/other-profile/:user"/>}
             {userId && <BubblePage path="/bubblepage/" name = {name} user={userId} />}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />
