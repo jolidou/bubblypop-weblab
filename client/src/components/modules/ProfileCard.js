@@ -8,10 +8,10 @@ import Avatar from "./Avatar.js";
 // import Contact from "./Contact.js";
 import ContactCard from "./ContactCard.js";
 
+
 import "./ProfileCard.css";
 import "../../utilities.css";
 import "./Status.css";
-//import Dropdown from "react-bootstrap/Dropdown";
 
 
 function ProfileCard(props) {
@@ -73,16 +73,6 @@ function ProfileCard(props) {
     } else {
         contactsList = <div>No contacts!</div>;
     }
-
-    // if (hasContacts) {
-    //     contactsList = contacts.map((contactObj) => (
-    //         <Dropdown.Item key = {`Contact_${contactObj._id}`}> 
-    //             {contactObj._id}
-    //         </Dropdown.Item>
-    //     ));
-    //     } else {
-    //         contactsList = <Dropdown.Item> No contacts yet :( </Dropdown.Item>
-    //     }
         
     return (
         
@@ -117,16 +107,17 @@ function ProfileCard(props) {
                     </div>
                 </div>
                 <div>
-                    <h1 className = "sectionTitle">Contacts:</h1> 
-                    {contactsList}
-                    {/* <Dropdown>
-                        <Dropdown.Toggle variant="success">
-                            All Contacts
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                {contactsList}
-                            </Dropdown.Menu>
-                    </Dropdown> */}
+                    {/* <h1 className = "sectionTitle">Contacts:</h1>  */}
+                    {/* {contactsList} */}
+
+                    <div class="dropdown">
+                    <button class="dropdown-btn">bubs</button>
+                    <div class="dropdown-content">
+                        {/* <a href="https://www.facebook.com/">Link 1</a>
+                        <a href="https://www.instagram.com/">Link 2</a> */}
+                        {contactsList}
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
