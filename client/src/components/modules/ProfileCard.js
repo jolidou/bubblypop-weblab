@@ -110,8 +110,8 @@ function ProfileCard(props) {
                     {/* <h1 className = "sectionTitle">Contacts:</h1>  */}
                     {/* {contactsList} */}
 
-                    <div class="dropdown">
-                    <button class="dropdown-btn">bubs</button>
+                    <div className="dropdown">
+                    <button className="dropdown-btn">bubs</button>
                     <div class="dropdown-content">
                         {/* <a href="https://www.facebook.com/">Link 1</a>
                         <a href="https://www.instagram.com/">Link 2</a> */}
