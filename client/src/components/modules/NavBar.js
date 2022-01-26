@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
-import { Link } from "@reach/router";
+import { navigate, Link } from "@reach/router";
+// import { useNavigate } from "@reach/router";
 
 import "../../utilities.css";
 import "./NavBar.css";
@@ -9,7 +10,7 @@ import "./NavBar.css";
 const GOOGLE_CLIENT_ID = "810319868270-g5a4qu2k272mtcdu5b374h2qo1lrlm7p.apps.googleusercontent.com";
 
 const NavBar = ({ userId, handleLogin, handleLogout }) => {
-
+  // const navigate = useNavigate();
   return (
     <nav className="NavBar-container">
       <div className="NavBar-title u-inlineBlock">bubblypop</div>
@@ -47,7 +48,11 @@ const NavBar = ({ userId, handleLogin, handleLogout }) => {
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Login"
-            onSuccess={handleLogin}
+            // onSuccess={handleLogin}
+            onSuccess={(res) => {
+              handleLogin(res);
+              navigate("/");
+            }}
             onFailure={(err) => console.log(err)}
             className="NavBar-link NavBar-login"
           />
