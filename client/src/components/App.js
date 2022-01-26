@@ -7,6 +7,8 @@ import BubblePage from "./pages/BubblePage.js";
 import Edit from "./pages/Edit.js";
 import Home from "./pages/Home.js";
 import Logout from "./pages/Logout.js";
+
+import OtherProfile from "./pages/OtherProfile.js";
 // import Navigation from "./modules/Navigation.js";
 
 import { socket } from "../client-socket.js";
@@ -63,7 +65,7 @@ const App = () => {
           <Router>
             <Home path="/" />
             {userId && <Profile path="/profile/" user={userId} />}
-            {userId && <Profile path="/other-profile/:user"/>}
+            {userId && <OtherProfile path="/other-profile/:user"/>}
             {userId && <BubblePage path="/bubblepage/" name = {name} user={userId} />}
             {userId && <Edit path="/edit-profile/" user={userId} />}
             <NotFound default />

@@ -33,6 +33,7 @@ body {
   font-size: 48px;
   font-weight: bold;
   margin: var(--l);
+  text-align: center;
 }
 
 .sectionTitle:nth-child(1) {
