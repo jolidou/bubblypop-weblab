@@ -14,8 +14,15 @@ import "./BubblePage.css";
 */
 
 const BubblePage = (props) => {
+  const [user, setUser] = useState("");
   const [bubbles, setBubbles] = useState([]);
   const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    get(`/api/user`, { userid: props.user }).then((userObj) => {
+      setUser(userObj);
+    });
+  }, []);
 
   useEffect(() => {
     get("/api/statuses").then((bubblesExisting) => {
@@ -72,7 +79,7 @@ const BubblePage = (props) => {
         <div className = "bubblePageTitleContainer">
           pop bubbles to make new bubs! :)
         </div>
-        {<NewBubble addNewBubble={addNewBubble} user={props.user} name = {props.name} />}
+        {<NewBubble addNewBubble={addNewBubble} user={props.user} name = {user.name} />}
         {/* <div className = "bubbleListContainer"> */}
           <div className = "wrapper">
             {bubbleList} 
