@@ -4,7 +4,8 @@ import "./Home.css";
 
 import { get } from "../../utilities";
 
-// import "../../utilities.css";
+// Thanks to Momika Shrestha, "Pure CSS animated
+//bubble background" @ Codepen, for inspiring our bubble code!
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -40,10 +41,21 @@ const Home = () => {
               a fast-growing platform combining the best of 
               social media and gaming in a highly satisfying, bubbly experience!
               {/* join our {usersList.length} other users today! */}
+            </div>            
             </div>
           </div>
-        </div>
-      </div>
+          <div className = "bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+          </div>
+    </div>
     </>
   );
 };
