@@ -60,7 +60,7 @@
   background: #f1f1f1;
   border-radius: 50%;
   opacity: 0.5;
-  animation: rise 20s infinite;
+  animation: rise 10s infinite;
 }
 
 .bubble:nth-child(1) {
