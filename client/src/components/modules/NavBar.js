@@ -35,15 +35,19 @@ const NavBar = ({ userId, handleLogin, handleLogout }) => {
           </Link>
         )}
         {userId ? (
-          <Link to={"/logout/"} className="NavBar-link">
+          // <Link to={"/logout/"} className="NavBar-link">
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
               buttonText="Logout"
-              onLogoutSuccess={handleLogout}
+              // onLogoutSuccess={handleLogout}
+              onLogoutSuccess={(res) => {
+              handleLogout(res);
+              navigate("/logout/");
+            }}
               onFailure={(err) => console.log(err)}
               className="NavBar-link NavBar-login"
             />
-          </Link>
+          // </Link>
         ) : (
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
