@@ -6,6 +6,7 @@
   width: 20vmin;
   height: 20vmin;
   padding: 5vmin;
+  margin: 0 auto;
   /* background-color: var(--dark-turq); */
 }
 
@@ -18,18 +19,13 @@
 .bubbleUser {
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .bubbleStatus {
   color: var(--mint-cream);
   font-family: "Dongle";
-  font-size: 28px;
-}
-
-.Bubble-status {
-  font-size: 10px;
-  flex: 1;
+  font-size: 20px;
 }
 
 .Card-container:first-of-type {
