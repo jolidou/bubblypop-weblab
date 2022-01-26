@@ -28,7 +28,7 @@ const BubbleCard2 = (props) => {
 
     function popBubble() {
         hideDiv();
-        const body = { user: props.userId, recipient: props.creator_id };
+        const body = { user: props.userId, recipient: props.creator_id, recipient_name: props.name };
         // post("/api/contact", body).then();
         post("/api/contact", body).then((contact) => {
             // props.addNewBubble(status);

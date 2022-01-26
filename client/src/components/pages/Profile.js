@@ -81,6 +81,7 @@ const Profile = (props) => {
           display={props.display}
           bubbleCount={bubbleCount}
           members={contacts}
+          recipient_name={props.recipient_name}
 
           linkedInURL = {"https://www.linkedin.com/in/" + linkedIn.content}
           facebookURL = {"https://www.facebook.com/" + facebook.content}

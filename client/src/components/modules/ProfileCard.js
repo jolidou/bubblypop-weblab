@@ -11,7 +11,7 @@ import ContactCard from "./ContactCard.js";
 import "./ProfileCard.css";
 import "../../utilities.css";
 import "./Status.css";
-import Dropdown from "react-bootstrap/Dropdown";
+//import Dropdown from "react-bootstrap/Dropdown";
 
 
 function ProfileCard(props) {
@@ -29,7 +29,7 @@ function ProfileCard(props) {
     }, []);
 
     useEffect(() => {
-        get("/api/contact", {user: props.userId }).then((contactObjs) => {
+        get("/api/contact", {user: props.userId}).then((contactObjs) => {
             setContacts(contactObjs);
         });
     }, []);
@@ -57,8 +57,6 @@ function ProfileCard(props) {
 
     let newArray = element.concat(props.contacts);
  */
-    console.log(props.bubbleCount);
-    console.log(props.members);
 
 
     let contactsList = null;
@@ -69,6 +67,7 @@ function ProfileCard(props) {
                 key={`ContactCard_${contactObj._id}`}
                 _id={contactObj._id}
                 recipient={contactObj.recipient}
+                recipient_name={contactObj.recipient_name}
             />
         ));
     } else {

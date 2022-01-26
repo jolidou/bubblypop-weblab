@@ -9,7 +9,7 @@ const ContactCard = (props) => {
   return (
     <>
         <Link to={url}>
-            {props.recipient}
+            {props.recipient_name}
           </Link>
       <hr></hr>
     </>

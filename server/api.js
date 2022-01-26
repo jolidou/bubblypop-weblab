@@ -229,12 +229,16 @@ router.get("/contact", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/contact", auth.ensureLoggedIn, (req, res) => {
-  Contact.findOne({ user: req.body.user, recipient: req.body.recipient }).then((contact) => {
+  Contact.findOne({ user: req.body.user, 
+                    recipient: req.body.recipient, 
+                    recipient_name: req.body.recipient_name }
+  ).then((contact) => {
     if (contact == null) {
       console.log("HELLO");
       const newContact = new Contact({
         user: req.body.user,
         recipient: req.body.recipient,
+        recipient_name: req.body.recipient_name
       });
       newContact.save().then((contact) => res.send(contact));
     } else {
