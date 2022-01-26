@@ -54,7 +54,6 @@ const App = () => {
   };
 
   if (userId) {
-    console.log(name);
     return (
       <>
         {/* <Navigation handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}

@@ -11,7 +11,6 @@ import ContactCard from "./ContactCard.js";
 import "./ProfileCard.css";
 import "../../utilities.css";
 import "./Status.css";
-import Dropdown from "react-bootstrap/Dropdown";
 
 
 function OtherProfileCard(props) {
@@ -50,9 +49,6 @@ function OtherProfileCard(props) {
 
     let newArray = element.concat(props.contacts);
  */
-    console.log(props.bubbleCount);
-    console.log(props.members);
-
     // if (hasContacts) {
     //     contactsList = contacts.map((contactObj) => (
     //         <Dropdown.Item key = {`Contact_${contactObj._id}`}> 

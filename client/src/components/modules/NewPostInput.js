@@ -114,6 +114,7 @@ const NewAvatar = (props) => {
     event.preventDefault();
     addAvatar(value);
     setValue("");
+    alert("Photo Uploaded!");
   };
 
   const encode = () => {

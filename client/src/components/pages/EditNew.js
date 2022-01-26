@@ -52,7 +52,6 @@ const EditNew = (props) => {
 
   useEffect(() => {
     get(`/api/socialMedia`, { googleid: "100544997551855169576", type: "linkedIn" }).then((socials) => {
-      console.log(socials)
       setSocial(socials);
     });
   }, [user]);

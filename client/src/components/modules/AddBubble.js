@@ -33,7 +33,6 @@ const AddBubble = (props) => {
 
 const StatusUpdate = (props) => {
     const updateStatus = (value) => {
-        console.log(value);
 
         /* const content = { content: props.status.content }
         post("/api/status", content); /* TODO: make /api/status */ 

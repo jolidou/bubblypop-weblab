@@ -234,16 +234,13 @@ router.post("/contact", auth.ensureLoggedIn, (req, res) => {
                     recipient_name: req.body.recipient_name }
   ).then((contact) => {
     if (contact == null) {
-      console.log("HELLO");
       const newContact = new Contact({
         user: req.body.user,
         recipient: req.body.recipient,
         recipient_name: req.body.recipient_name
       });
       newContact.save().then((contact) => res.send(contact));
-    } else {
-      console.log("BYE");
-    }
+    } 
   });
   // Contact.findOne({ user: req.body.recipient, recipient: req.body.user }).then((contact) => {
   //   if (contact == null) {
